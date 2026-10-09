@@ -1,0 +1,64 @@
+{
+  "name": "ghealth-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for the Google Health API (Fitbit / Pixel Watch data). Self-hosted: bring your own Google credentials.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "ghealth-mcp": "dist/local/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.worker.json",
+    "test": "vitest run",
+    "generate": "tsx scripts/generate-schemas.ts",
+    "dev:local": "tsx src/local/cli.ts",
+    "dev:remote": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "smoke": "tsx scripts/smoke.ts",
+    "format": "prettier --write .",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@cfworker/json-schema": "^4.1.1",
+    "@cloudflare/workers-oauth-provider": "^1.2.3",
+    "@modelcontextprotocol/server": "2.0.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261009.1",
+    "@modelcontextprotocol/client": "2.0.0",
+    "@types/node": "^26.6.4",
+    "prettier": "^3.9.9",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3",
+    "wrangler": "^4.149.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "workerd@1.20261006.1": true,
+    "core-js-pure": false
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_GITHUB_USERNAME/ghealth-mcp"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "fitbit",
+    "google-health",
+    "claude",
+    "health",
+    "cloudflare-workers"
+  ]
+}
