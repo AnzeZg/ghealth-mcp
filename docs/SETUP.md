@@ -32,7 +32,7 @@ Keep each client ID and secret handy. You can come back and add the Worker's red
 Requires a free [Cloudflare account](https://dash.cloudflare.com/sign-up) and Node.js 20+.
 
 ```sh
-git clone https://github.com/YOUR_GITHUB_USERNAME/ghealth-mcp && cd ghealth-mcp
+git clone https://github.com/AnzeZg/ghealth-mcp && cd ghealth-mcp
 npm install
 npx wrangler login
 
@@ -57,7 +57,7 @@ Using a custom domain? Set the `PUBLIC_URL` var to it (e.g. `https://health.exam
 ## 3b. Local mode (Claude Desktop / Claude Code)
 
 ```sh
-git clone https://github.com/YOUR_GITHUB_USERNAME/ghealth-mcp && cd ghealth-mcp
+git clone https://github.com/AnzeZg/ghealth-mcp && cd ghealth-mcp
 npm install && npm run build
 ```
 

@@ -57,7 +57,7 @@ See **[docs/SETUP.md](docs/SETUP.md)**. In short:
 2. Pick a mode:
    - **Remote (works in Claude on web, desktop _and_ mobile):** deploy to Cloudflare and add `https://<your-worker>/mcp` as a custom connector in Claude.
 
-     [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/YOUR_GITHUB_USERNAME/ghealth-mcp)
+     [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/AnzeZg/ghealth-mcp)
 
    - **Local (Claude Desktop / Claude Code only):** `npx ghealth-mcp auth`, then add the server to your MCP client config.
 
