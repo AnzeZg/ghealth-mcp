@@ -1,0 +1,4194 @@
+{
+ "source": "https://health.googleapis.com/$discovery/rest?version=v4",
+ "dataTypes": {
+  "core-body-temperature": {
+   "field": "coreBodyTemperature",
+   "schemaName": "CoreBodyTemperature",
+   "apiVersion": "v4",
+   "description": "Core body temperature measurement, distinct from peripheral body temperature, reflects the temperature of the body's internal organs.",
+   "timeKind": "sample",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "temperatureCelsius": {
+      "type": "number",
+      "description": "Required. The core body temperature in Celsius. Must be in the range `[0, 100]`."
+     },
+     "sampleTime": {
+      "type": "object",
+      "properties": {
+       "utcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time during the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "physicalTime": {
+        "type": "string",
+        "description": "Required. The time of the observation. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "utcOffset",
+       "physicalTime"
+      ],
+      "description": "Required. The time at which core body temperature was measured."
+     },
+     "id": {
+      "type": "string",
+      "description": "Optional. The unique identifier of the core body temperature measurement."
+     },
+     "measurementLocation": {
+      "type": "string",
+      "enum": [
+       "MEASUREMENT_LOCATION_UNSPECIFIED",
+       "OTHER",
+       "ARMPIT",
+       "BODY",
+       "EAR",
+       "FINGER",
+       "GASTRO_INTESTINAL",
+       "MOUTH",
+       "RECTUM",
+       "TOE",
+       "EAR_DRUM",
+       "TEMPORAL_ARTERY",
+       "FOREHEAD",
+       "URINARY_BLADDER",
+       "NASAL",
+       "NASOPHARYNGEAL",
+       "WRIST",
+       "VAGINA"
+      ],
+      "description": "Optional. The location of the core body temperature measurement."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "temperatureCelsius",
+     "sampleTime"
+    ]
+   }
+  },
+  "height": {
+   "field": "height",
+   "schemaName": "Height",
+   "apiVersion": "v4",
+   "description": "Body height measurement.",
+   "timeKind": "sample",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "sampleTime": {
+      "type": "object",
+      "properties": {
+       "utcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time during the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "physicalTime": {
+        "type": "string",
+        "description": "Required. The time of the observation. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "utcOffset",
+       "physicalTime"
+      ],
+      "description": "Required. The time at which the height was recorded."
+     },
+     "heightMillimeters": {
+      "type": [
+       "string",
+       "integer"
+      ],
+      "description": "Required. Height of the user in millimeters. Must be in the range `[0, 3000]`."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "sampleTime",
+     "heightMillimeters"
+    ]
+   }
+  },
+  "vo2-max": {
+   "field": "vo2Max",
+   "schemaName": "VO2Max",
+   "apiVersion": "v4",
+   "description": "VO2 max measurement.",
+   "timeKind": "sample",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "measurementMethod": {
+      "type": "string",
+      "enum": [
+       "MEASUREMENT_METHOD_UNSPECIFIED",
+       "FITBIT_RUN",
+       "GOOGLE_DEMOGRAPHIC",
+       "COOPER_TEST",
+       "HEART_RATE_RATIO",
+       "METABOLIC_CART",
+       "MULTISTAGE_FITNESS_TEST",
+       "ROCKPORT_FITNESS_TEST",
+       "MAX_EXERCISE",
+       "PREDICTION_SUB_MAX_EXERCISE",
+       "PREDICTION_NON_EXERCISE",
+       "OTHER"
+      ],
+      "description": "Optional. The method used to measure the VO2 max value."
+     },
+     "vo2Max": {
+      "type": "number",
+      "description": "Required. VO2 max value measured as in ml consumed oxygen / kg of body weight / min. Must be in the range `[0, 100]`."
+     },
+     "sampleTime": {
+      "type": "object",
+      "properties": {
+       "utcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time during the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "physicalTime": {
+        "type": "string",
+        "description": "Required. The time of the observation. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "utcOffset",
+       "physicalTime"
+      ],
+      "description": "Required. The time at which VO2 max was measured."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "vo2Max",
+     "sampleTime"
+    ]
+   }
+  },
+  "run-vo2-max": {
+   "field": "runVo2Max",
+   "schemaName": "RunVO2Max",
+   "apiVersion": "v4",
+   "description": "VO2 max value calculated based on the user's running activity. Value stored in ml/kg/min.",
+   "timeKind": "sample",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "sampleTime": {
+      "type": "object",
+      "properties": {
+       "utcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time during the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "physicalTime": {
+        "type": "string",
+        "description": "Required. The time of the observation. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "utcOffset",
+       "physicalTime"
+      ],
+      "description": "Required. The time at which the metric was measured."
+     },
+     "runVo2Max": {
+      "type": "number",
+      "description": "Required. Run VO2 max value in ml/kg/min. Must be in the range `[0, 100]`."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "sampleTime",
+     "runVo2Max"
+    ]
+   }
+  },
+  "active-minutes": {
+   "field": "activeMinutes",
+   "schemaName": "ActiveMinutes",
+   "apiVersion": "v4",
+   "description": "Record of active minutes in a given time interval.",
+   "timeKind": "interval",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "activeMinutesByActivityLevel": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "activityLevel": {
+         "type": "string",
+         "enum": [
+          "ACTIVITY_LEVEL_UNSPECIFIED",
+          "LIGHT",
+          "MODERATE",
+          "VIGOROUS"
+         ],
+         "description": "Required. The level of activity."
+        },
+        "activeMinutes": {
+         "type": [
+          "string",
+          "integer"
+         ],
+         "description": "Required. Number of whole minutes spent in activity."
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "activityLevel",
+        "activeMinutes"
+       ]
+      },
+      "description": "Required. Active minutes by activity level. At most one record per activity level is allowed."
+     },
+     "interval": {
+      "type": "object",
+      "properties": {
+       "endUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the end of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "endTime": {
+        "type": "string",
+        "description": "Required. Observed interval end time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       },
+       "startUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the start of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startTime": {
+        "type": "string",
+        "description": "Required. Observed interval start time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "endUtcOffset",
+       "endTime",
+       "startUtcOffset",
+       "startTime"
+      ],
+      "description": "Required. Observed interval."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "activeMinutesByActivityLevel",
+     "interval"
+    ]
+   }
+  },
+  "altitude": {
+   "field": "altitude",
+   "schemaName": "Altitude",
+   "apiVersion": "v4",
+   "description": "Captures the altitude gain (i.e. deltas), and not level above sea, for a user in millimeters.",
+   "timeKind": "interval",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "gainMillimeters": {
+      "type": [
+       "string",
+       "integer"
+      ],
+      "description": "Required. Altitude gain in millimeters over the observed interval. Must be in the range `[-1000000000, 1000000000]`."
+     },
+     "interval": {
+      "type": "object",
+      "properties": {
+       "endUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the end of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "endTime": {
+        "type": "string",
+        "description": "Required. Observed interval end time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       },
+       "startUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the start of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startTime": {
+        "type": "string",
+        "description": "Required. Observed interval start time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "endUtcOffset",
+       "endTime",
+       "startUtcOffset",
+       "startTime"
+      ],
+      "description": "Required. Observed interval."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "gainMillimeters",
+     "interval"
+    ]
+   }
+  },
+  "irregular-rhythm-notification": {
+   "field": "irregularRhythmNotification",
+   "schemaName": "IrregularRhythmNotification",
+   "apiVersion": "v4",
+   "description": "Represents an Irregular Rhythm Notification alert, indicating a potential sign of atrial fibrillation (AFib). This data type is based on SaMD feature and any changes to it may require additional review.",
+   "timeKind": "interval",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "interval": {
+      "type": "object",
+      "properties": {
+       "endTime": {
+        "type": "string",
+        "description": "Required. The end time of the observed session. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       },
+       "endUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the end of the session relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the start of the session relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startTime": {
+        "type": "string",
+        "description": "Required. The start time of the observed session. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "endTime",
+       "endUtcOffset",
+       "startUtcOffset",
+       "startTime"
+      ],
+      "description": "Required. Observed interval."
+     },
+     "alertWindows": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "startUtcOffset": {
+         "type": "string",
+         "description": "Required. The UTC offset of the user's timezone when the analysis window started. Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+        },
+        "endUtcOffset": {
+         "type": "string",
+         "description": "Required. The UTC offset of the user's timezone when the analysis window ended. Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+        },
+        "startTime": {
+         "type": "string",
+         "description": "Required. Observed interval. The start time of the analysis window. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+        },
+        "endTime": {
+         "type": "string",
+         "description": "Required. The end time of the analysis window. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+        },
+        "positive": {
+         "type": "boolean",
+         "description": "Optional. Flag indicating whether the window was positive for AFib or not. A `true` value indicates that AFib was detected in this window. A `false` value means AFib was not detected, but does not guarantee the absence of AFib."
+        },
+        "heartBeats": {
+         "type": "array",
+         "items": {
+          "type": "object",
+          "properties": {
+           "utcOffset": {
+            "type": "string",
+            "description": "Required. The UTC offset of the user's timezone when the heart beat measurement occurred. Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+           },
+           "beatsPerMinute": {
+            "type": "integer",
+            "description": "Required. The beats-per-minute value extrapolated from the time before the following heart beat. This is calculated as 60000 / rr, where rr is the gap between heart beats in milliseconds (IBI - Interbeat Interval)."
+           },
+           "physicalTime": {
+            "type": "string",
+            "description": "Required. The time of the heart beat measurement. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+           }
+          },
+          "additionalProperties": false,
+          "required": [
+           "utcOffset",
+           "beatsPerMinute",
+           "physicalTime"
+          ]
+         },
+         "description": "Optional. All heart beats in the interval contained in this analysis window."
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "startUtcOffset",
+        "endUtcOffset",
+        "startTime",
+        "endTime"
+       ]
+      },
+      "description": "Optional. The overlapping analysis windows that were used to evaluate rhythm for potential AFib, containing specific information about the user's heart rhythm."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "interval"
+    ]
+   }
+  },
+  "heart-rate": {
+   "field": "heartRate",
+   "schemaName": "HeartRate",
+   "apiVersion": "v4",
+   "description": "A heart rate measurement.",
+   "timeKind": "sample",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "beatsPerMinute": {
+      "type": [
+       "string",
+       "integer"
+      ],
+      "description": "Required. The heart rate value in beats per minute. Must be in the range `[1, 300]`."
+     },
+     "sampleTime": {
+      "type": "object",
+      "properties": {
+       "utcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time during the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "physicalTime": {
+        "type": "string",
+        "description": "Required. The time of the observation. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "utcOffset",
+       "physicalTime"
+      ],
+      "description": "Required. Observation time"
+     },
+     "metadata": {
+      "type": "object",
+      "properties": {
+       "sensorLocation": {
+        "type": "string",
+        "enum": [
+         "SENSOR_LOCATION_UNSPECIFIED",
+         "CHEST",
+         "WRIST",
+         "FINGER",
+         "HAND",
+         "EAR_LOBE",
+         "FOOT"
+        ],
+        "description": "Optional. Indicates the location of the sensor that measured the heart rate."
+       },
+       "motionContext": {
+        "type": "string",
+        "enum": [
+         "MOTION_CONTEXT_UNSPECIFIED",
+         "ACTIVE",
+         "SEDENTARY"
+        ],
+        "description": "Optional. Indicates the user’s level of activity when the heart rate sample was measured"
+       }
+      },
+      "additionalProperties": false,
+      "description": "Optional. Metadata about the heart rate sample."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "beatsPerMinute",
+     "sampleTime"
+    ]
+   }
+  },
+  "active-energy-burned": {
+   "field": "activeEnergyBurned",
+   "schemaName": "ActiveEnergyBurned",
+   "apiVersion": "v4",
+   "description": "Energy burned as part of an activity, excluding the basal energy burn.",
+   "timeKind": "interval",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "interval": {
+      "type": "object",
+      "properties": {
+       "endUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the end of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "endTime": {
+        "type": "string",
+        "description": "Required. Observed interval end time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       },
+       "startUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the start of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startTime": {
+        "type": "string",
+        "description": "Required. Observed interval start time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "endUtcOffset",
+       "endTime",
+       "startUtcOffset",
+       "startTime"
+      ],
+      "description": "Required. Observed interval"
+     },
+     "kcal": {
+      "type": "number",
+      "description": "Required. Energy burned during an activity, measured in kilocalories. Must be in the range `[0, 1000000]`."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "interval",
+     "kcal"
+    ]
+   }
+  },
+  "distance": {
+   "field": "distance",
+   "schemaName": "Distance",
+   "apiVersion": "v4",
+   "description": "Distance traveled over an interval of time.",
+   "timeKind": "interval",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "millimeters": {
+      "type": [
+       "string",
+       "integer"
+      ],
+      "description": "Required. Distance in millimeters over the observed interval. Must be in the range `[0, 1000000000]`."
+     },
+     "interval": {
+      "type": "object",
+      "properties": {
+       "endUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the end of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "endTime": {
+        "type": "string",
+        "description": "Required. Observed interval end time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       },
+       "startUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the start of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startTime": {
+        "type": "string",
+        "description": "Required. Observed interval start time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "endUtcOffset",
+       "endTime",
+       "startUtcOffset",
+       "startTime"
+      ],
+      "description": "Required. Observed interval."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "millimeters",
+     "interval"
+    ]
+   }
+  },
+  "symptoms": {
+   "field": "symptoms",
+   "schemaName": "Symptoms",
+   "apiVersion": "v4",
+   "description": "Symptoms logged by the user.",
+   "timeKind": "sample",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "sampleTime": {
+      "type": "object",
+      "properties": {
+       "utcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time during the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "physicalTime": {
+        "type": "string",
+        "description": "Required. The time of the observation. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "utcOffset",
+       "physicalTime"
+      ],
+      "description": "Required. Time when the symptoms were logged."
+     },
+     "symptoms": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "enum": [
+        "SYMPTOM_VALUE_UNSPECIFIED",
+        "CRAMPS",
+        "HEADACHE",
+        "TENDER_BREASTS",
+        "ACNE",
+        "SICK",
+        "BLOATED",
+        "HOT_FLASHES",
+        "PMS",
+        "COUGH",
+        "FEVER",
+        "DIFFICULTY_BREATHING",
+        "BACK_PAIN",
+        "SHAKINESS",
+        "HUNGER",
+        "SWEATING",
+        "ANXIETY",
+        "THIRST",
+        "FREQUENT_URINATION",
+        "BLURRED_VISION",
+        "OTHER",
+        "SEX_DRIVE_HIGH",
+        "SEX_DRIVE_MEDIUM",
+        "SEX_DRIVE_LOW",
+        "HEART_PALPITATIONS",
+        "FAINTING",
+        "CHEST_PAIN",
+        "FATIGUE",
+        "CONFUSION",
+        "DIZZINESS",
+        "ABDOMINAL_PAIN",
+        "BLADDER_LEAKS",
+        "BLEEDING_GUMS",
+        "BRAIN_FOG",
+        "BURNING_MOUTH",
+        "CONSTIPATION",
+        "CRAVINGS",
+        "DECREASED_APPETITE",
+        "DIARRHEA",
+        "DRAWING_PAIN",
+        "DRY_EYES",
+        "DRY_HAIR",
+        "DRY_SKIN",
+        "EXHAUSTION",
+        "FEEL_GOOD",
+        "FOOD_AVERSIONS",
+        "HAIR_LOSS",
+        "HEARTBURN",
+        "HYPERPIGMENTATION",
+        "INCREASED_APPETITE",
+        "INCREASED_APPETITE_V2",
+        "INSOMNIA",
+        "JOINT_PAIN",
+        "LEG_CRAMPS",
+        "MILKY_NIPPLE_DISCHARGE",
+        "NAUSEA",
+        "NIGHT_SWEATS",
+        "NORMAL_DIGESTION",
+        "NORMAL_STOOL",
+        "PERINEUM_PAIN",
+        "SLEEPINESS",
+        "STRETCH_MARKS",
+        "SWELLING",
+        "VAGINAL_DRYNESS",
+        "VAGINAL_ITCHING",
+        "VOMITING"
+       ]
+      },
+      "description": "Required. List of symptoms experienced."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "sampleTime",
+     "symptoms"
+    ]
+   }
+  },
+  "daily-heart-rate-variability": {
+   "field": "dailyHeartRateVariability",
+   "schemaName": "DailyHeartRateVariability",
+   "apiVersion": "v4",
+   "description": "Represents the daily heart rate variability data type. At least one of the following fields must be set: - `average_heart_rate_variability_milliseconds` - `non_rem_heart_rate_beats_per_minute` - `entropy` - `deep_sleep_root_mean_square_of_successive_differences_milliseconds`",
+   "timeKind": "date",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "nonRemHeartRateBeatsPerMinute": {
+      "type": [
+       "string",
+       "integer"
+      ],
+      "description": "Optional. Non-REM heart rate"
+     },
+     "entropy": {
+      "type": "number",
+      "description": "Optional. The Shanon entropy of heartbeat intervals. Entropy quantifies randomness or disorder in a system. High entropy indicates high HRV. Entropy is measured from the histogram of time interval between successive heart beats values measured during sleep."
+     },
+     "deepSleepRootMeanSquareOfSuccessiveDifferencesMilliseconds": {
+      "type": "number",
+      "description": "Optional. The root mean square of successive differences (RMSSD) value during deep sleep."
+     },
+     "date": {
+      "type": "object",
+      "properties": {
+       "day": {
+        "type": "integer",
+        "description": "Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant."
+       },
+       "month": {
+        "type": "integer",
+        "description": "Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day."
+       },
+       "year": {
+        "type": "integer",
+        "description": "Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year."
+       }
+      },
+      "additionalProperties": false,
+      "description": "Required. Date (in the user's timezone) of heart rate variability measurement."
+     },
+     "averageHeartRateVariabilityMilliseconds": {
+      "type": "number",
+      "description": "Optional. A user's average heart rate variability calculated using the root mean square of successive differences (RMSSD) in times between heartbeats."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "date"
+    ]
+   }
+  },
+  "electrocardiogram": {
+   "field": "electrocardiogram",
+   "schemaName": "Electrocardiogram",
+   "apiVersion": "v4",
+   "description": "Represents an Electrocardiogram (ECG) measurement session. This data type is based on SaMD feature and any changes to it may require additional review.",
+   "timeKind": "interval",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "millivoltsScalingFactor": {
+      "type": "integer",
+      "description": "Optional. The factor by which to divide waveform samples to get voltage in millivolts: millivolts = waveform_sample / millivolts_scaling_factor."
+     },
+     "beatsPerMinuteAvg": {
+      "type": [
+       "string",
+       "integer"
+      ],
+      "description": "Optional. Average heart rate recorded during ECG reading in beats per minute."
+     },
+     "resultClassification": {
+      "type": "string",
+      "enum": [
+       "RESULT_CLASSIFICATION_UNSPECIFIED",
+       "NORMAL_SINUS_RHYTHM",
+       "ATRIAL_FIBRILLATION",
+       "INCONCLUSIVE",
+       "INCONCLUSIVE_HIGH_HEART_RATE",
+       "INCONCLUSIVE_LOW_HEART_RATE",
+       "UNREADABLE",
+       "NOT_ANALYZED"
+      ],
+      "description": "Optional. The result classification of the ECG reading."
+     },
+     "waveformSamples": {
+      "type": "array",
+      "items": {
+       "type": "integer"
+      },
+      "description": "Optional. An array of voltage values representing lead I ECG values. Each sample represents voltage difference in ECG graph. The first value in array corresponds to the start of the reading."
+     },
+     "interval": {
+      "type": "object",
+      "properties": {
+       "endTime": {
+        "type": "string",
+        "description": "Required. The end time of the observed session. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       },
+       "endUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the end of the session relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the start of the session relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startTime": {
+        "type": "string",
+        "description": "Required. The start time of the observed session. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "endTime",
+       "endUtcOffset",
+       "startUtcOffset",
+       "startTime"
+      ],
+      "description": "Required. Observed interval. NOTE: Historical ECG data lacks timezone offsets, so `start_utc_offset` and `end_utc_offset` will be missing or default to zero. As a result, the civil time fields within this interval will default to UTC. It is recommended to use physical time fields instead for accura…"
+     },
+     "leadNumber": {
+      "type": "integer",
+      "description": "Optional. The number of leads used for ECG reading."
+     },
+     "samplingFrequencyHertz": {
+      "type": "integer",
+      "description": "Optional. The sampling frequency of waveform samples in hertz."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "interval"
+    ]
+   }
+  },
+  "steps": {
+   "field": "steps",
+   "schemaName": "Steps",
+   "apiVersion": "v4",
+   "description": "Step count over the time interval.",
+   "timeKind": "interval",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "interval": {
+      "type": "object",
+      "properties": {
+       "endUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the end of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "endTime": {
+        "type": "string",
+        "description": "Required. Observed interval end time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       },
+       "startUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the start of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startTime": {
+        "type": "string",
+        "description": "Required. Observed interval start time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "endUtcOffset",
+       "endTime",
+       "startUtcOffset",
+       "startTime"
+      ],
+      "description": "Required. Observed interval."
+     },
+     "count": {
+      "type": [
+       "string",
+       "integer"
+      ],
+      "description": "Required. Number of steps in the recorded interval. Must be in the range `[0, 1000000]`."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "interval",
+     "count"
+    ]
+   }
+  },
+  "sleep": {
+   "field": "sleep",
+   "schemaName": "Sleep",
+   "apiVersion": "v4",
+   "description": "A sleep session possibly including stages.",
+   "timeKind": "interval",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "stages": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "type": {
+         "type": "string",
+         "enum": [
+          "SLEEP_STAGE_TYPE_UNSPECIFIED",
+          "AWAKE",
+          "LIGHT",
+          "DEEP",
+          "REM",
+          "ASLEEP",
+          "RESTLESS"
+         ],
+         "description": "Required. Sleep stage type: AWAKE, DEEP, REM, LIGHT etc."
+        },
+        "startTime": {
+         "type": "string",
+         "description": "Required. Sleep stage start time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+        },
+        "endTime": {
+         "type": "string",
+         "description": "Required. Sleep stage end time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+        },
+        "startUtcOffset": {
+         "type": "string",
+         "description": "Required. The offset of the user's local time at the start of the sleep stage relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+        },
+        "endUtcOffset": {
+         "type": "string",
+         "description": "Required. The offset of the user's local time at the end of the sleep stage relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "type",
+        "startTime",
+        "endTime",
+        "startUtcOffset",
+        "endUtcOffset"
+       ]
+      },
+      "description": "Optional. List of non-overlapping contiguous sleep stage segments that cover the sleep period."
+     },
+     "metadata": {
+      "type": "object",
+      "properties": {
+       "externalId": {
+        "type": "string",
+        "description": "Optional. Sleep identifier relevant in the context of the data source."
+       }
+      },
+      "additionalProperties": false,
+      "description": "Optional. Sleep metadata: `processed`, `main_sleep`, `manually_edited`, and `stages_status`."
+     },
+     "interval": {
+      "type": "object",
+      "properties": {
+       "endTime": {
+        "type": "string",
+        "description": "Required. The end time of the observed session. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       },
+       "endUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the end of the session relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the start of the session relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startTime": {
+        "type": "string",
+        "description": "Required. The start time of the observed session. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "endTime",
+       "endUtcOffset",
+       "startUtcOffset",
+       "startTime"
+      ],
+      "description": "Required. Observed sleep interval."
+     },
+     "outOfBedSegments": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "startTime": {
+         "type": "string",
+         "description": "Required. Segment tart time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+        },
+        "endTime": {
+         "type": "string",
+         "description": "Required. Segment end time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+        },
+        "endUtcOffset": {
+         "type": "string",
+         "description": "Required. The offset of the user's local time at the end of the segment relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+        },
+        "startUtcOffset": {
+         "type": "string",
+         "description": "Required. The offset of the user's local time at the start of the segment relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "startTime",
+        "endTime",
+        "endUtcOffset",
+        "startUtcOffset"
+       ]
+      },
+      "description": "Optional. “Out of bed” segments that can overlap with sleep stages."
+     },
+     "type": {
+      "type": "string",
+      "enum": [
+       "SLEEP_TYPE_UNSPECIFIED",
+       "CLASSIC",
+       "STAGES"
+      ],
+      "description": "Optional. SleepType: classic or stages."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "interval"
+    ]
+   }
+  },
+  "active-zone-minutes": {
+   "field": "activeZoneMinutes",
+   "schemaName": "ActiveZoneMinutes",
+   "apiVersion": "v4",
+   "description": "Record of active zone minutes in a given time interval.",
+   "timeKind": "interval",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "heartRateZone": {
+      "type": "string",
+      "enum": [
+       "HEART_RATE_ZONE_UNSPECIFIED",
+       "FAT_BURN",
+       "CARDIO",
+       "PEAK"
+      ],
+      "description": "Required. Heart rate zone in which the active zone minutes have been earned, in the given time interval."
+     },
+     "interval": {
+      "type": "object",
+      "properties": {
+       "endUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the end of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "endTime": {
+        "type": "string",
+        "description": "Required. Observed interval end time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       },
+       "startUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the start of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startTime": {
+        "type": "string",
+        "description": "Required. Observed interval start time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "endUtcOffset",
+       "endTime",
+       "startUtcOffset",
+       "startTime"
+      ],
+      "description": "Required. Observed interval."
+     },
+     "activeZoneMinutes": {
+      "type": [
+       "string",
+       "integer"
+      ],
+      "description": "Required. Number of Active Zone Minutes earned in the given time interval. Note: active_zone_minutes equals to 1 for low intensity (fat burn) zones or 2 for high intensity zones (cardio, peak)."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "heartRateZone",
+     "interval",
+     "activeZoneMinutes"
+    ]
+   }
+  },
+  "menstrual-period": {
+   "field": "menstrualPeriod",
+   "schemaName": "MenstrualPeriod",
+   "apiVersion": "v4",
+   "description": "Menstrual period record.",
+   "timeKind": "interval",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "interval": {
+      "type": "object",
+      "properties": {
+       "endUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the end of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "endTime": {
+        "type": "string",
+        "description": "Required. Observed interval end time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       },
+       "startUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the start of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startTime": {
+        "type": "string",
+        "description": "Required. Observed interval start time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "endUtcOffset",
+       "endTime",
+       "startUtcOffset",
+       "startTime"
+      ],
+      "description": "Required. Observed interval."
+     },
+     "notes": {
+      "type": "string",
+      "description": "Optional. Standard free-form notes captured at manual logging."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "interval"
+    ]
+   }
+  },
+  "floors": {
+   "field": "floors",
+   "schemaName": "Floors",
+   "apiVersion": "v4",
+   "description": "Gained elevation measured in floors over the time interval",
+   "timeKind": "interval",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "count": {
+      "type": [
+       "string",
+       "integer"
+      ],
+      "description": "Required. Number of floors in the recorded interval. Must be in the range `[0, 1000000]`."
+     },
+     "interval": {
+      "type": "object",
+      "properties": {
+       "endUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the end of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "endTime": {
+        "type": "string",
+        "description": "Required. Observed interval end time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       },
+       "startUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the start of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startTime": {
+        "type": "string",
+        "description": "Required. Observed interval start time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "endUtcOffset",
+       "endTime",
+       "startUtcOffset",
+       "startTime"
+      ],
+      "description": "Required. Observed interval"
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "count",
+     "interval"
+    ]
+   }
+  },
+  "nutrition-log": {
+   "field": "nutritionLog",
+   "schemaName": "NutritionLog",
+   "apiVersion": "v4",
+   "description": "Holds information about food logged by a user. There are two ways of creating a nutrition log based on the food type: 1. Identified food: Using the food field, which is a reference to a Food resource. In this case fields `nutrients`, `energy`, `energy_from_fat`, `total_carbohydrate`, `total_fat`, `…",
+   "timeKind": "interval",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "food": {
+      "type": "string",
+      "description": "Optional. The resource name of the Food item. Required when creating a nutrition log from an identified food. For anonymous food logs, use the `food_display_name` field instead."
+     },
+     "nutrients": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "quantity": {
+         "type": "object",
+         "properties": {
+          "grams": {
+           "type": "number",
+           "description": "Required. The weight value in grams. Must be in the range `[0, 100000]`."
+          },
+          "userProvidedUnit": {
+           "type": "string",
+           "enum": [
+            "WEIGHT_UNIT_UNSPECIFIED",
+            "GRAM",
+            "KILOGRAM",
+            "OUNCE",
+            "POUND",
+            "STONE",
+            "MILLIGRAM",
+            "MICROGRAM",
+            "NANOGRAM"
+           ],
+           "description": "Optional. Value representing the user provided unit."
+          }
+         },
+         "additionalProperties": false,
+         "required": [
+          "grams"
+         ],
+         "description": "Required. The quantity of the nutrient, measured in grams."
+        },
+        "nutrient": {
+         "type": "string",
+         "enum": [
+          "NUTRIENT_UNSPECIFIED",
+          "BIOTIN",
+          "CAFFEINE",
+          "CALCIUM",
+          "CHLORIDE",
+          "CARBOHYDRATES",
+          "CHOLESTEROL",
+          "CHROMIUM",
+          "COPPER",
+          "DIETARY_FIBER",
+          "FOLIC_ACID",
+          "IODINE",
+          "IRON",
+          "MAGNESIUM",
+          "MANGANESE",
+          "MOLYBDENUM",
+          "MONOUNSATURATED_FAT",
+          "NIACIN",
+          "PANTOTHENIC_ACID",
+          "PHOSPHORUS",
+          "POLYUNSATURATED_FAT",
+          "POTASSIUM",
+          "PROTEIN",
+          "RIBOFLAVIN",
+          "SATURATED_FAT",
+          "SELENIUM",
+          "SODIUM",
+          "SUGAR",
+          "THIAMIN",
+          "TRANS_FAT",
+          "UNSATURATED_FAT",
+          "VITAMIN_A",
+          "VITAMIN_B12",
+          "VITAMIN_B6",
+          "VITAMIN_C",
+          "VITAMIN_D",
+          "VITAMIN_E",
+          "VITAMIN_K",
+          "ZINC",
+          "FOLATE"
+         ],
+         "description": "Required. The nutrient type."
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "quantity",
+        "nutrient"
+       ]
+      },
+      "description": "Optional. An array of individual nutrient values for the nutrition log."
+     },
+     "totalCarbohydrate": {
+      "type": "object",
+      "properties": {
+       "grams": {
+        "type": "number",
+        "description": "Required. The weight value in grams. Must be in the range `[0, 100000]`."
+       },
+       "userProvidedUnit": {
+        "type": "string",
+        "enum": [
+         "WEIGHT_UNIT_UNSPECIFIED",
+         "GRAM",
+         "KILOGRAM",
+         "OUNCE",
+         "POUND",
+         "STONE",
+         "MILLIGRAM",
+         "MICROGRAM",
+         "NANOGRAM"
+        ],
+        "description": "Optional. Value representing the user provided unit."
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "grams"
+      ],
+      "description": "Optional. The total carbohydrate content, measured in grams."
+     },
+     "foodDisplayName": {
+      "type": "string",
+      "description": "The display name of the food. For identified food logs, this is populated automatically from the referenced food."
+     },
+     "serving": {
+      "type": "object",
+      "properties": {
+       "amount": {
+        "type": "number",
+        "description": "Optional. The number of servings."
+       },
+       "foodMeasurementUnit": {
+        "type": "string",
+        "description": "Required. Food measurement unit"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "foodMeasurementUnit"
+      ],
+      "description": "Optional. The serving information for the logged food."
+     },
+     "energyFromFat": {
+      "type": "object",
+      "properties": {
+       "userProvidedUnit": {
+        "type": "string",
+        "enum": [
+         "ENERGY_UNIT_UNSPECIFIED",
+         "JOULE",
+         "KILOJOULE",
+         "KILOCALORIE",
+         "SMALL_CALORIE",
+         "CALORIE"
+        ],
+        "description": "Optional. Value representing the user provided unit."
+       },
+       "kcal": {
+        "type": "number",
+        "description": "Required. The energy value in kilocalories. Must be in the range `[0, 100000]`."
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "kcal"
+      ],
+      "description": "Optional. The energy from fat, measured in kilocalories (`kcal`)."
+     },
+     "totalFat": {
+      "type": "object",
+      "properties": {
+       "grams": {
+        "type": "number",
+        "description": "Required. The weight value in grams. Must be in the range `[0, 100000]`."
+       },
+       "userProvidedUnit": {
+        "type": "string",
+        "enum": [
+         "WEIGHT_UNIT_UNSPECIFIED",
+         "GRAM",
+         "KILOGRAM",
+         "OUNCE",
+         "POUND",
+         "STONE",
+         "MILLIGRAM",
+         "MICROGRAM",
+         "NANOGRAM"
+        ],
+        "description": "Optional. Value representing the user provided unit."
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "grams"
+      ],
+      "description": "Optional. The total fat content, measured in grams."
+     },
+     "energy": {
+      "type": "object",
+      "properties": {
+       "userProvidedUnit": {
+        "type": "string",
+        "enum": [
+         "ENERGY_UNIT_UNSPECIFIED",
+         "JOULE",
+         "KILOJOULE",
+         "KILOCALORIE",
+         "SMALL_CALORIE",
+         "CALORIE"
+        ],
+        "description": "Optional. Value representing the user provided unit."
+       },
+       "kcal": {
+        "type": "number",
+        "description": "Required. The energy value in kilocalories. Must be in the range `[0, 100000]`."
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "kcal"
+      ],
+      "description": "Optional. The total energy of the food, measured in kilocalories (`kcal`)."
+     },
+     "interval": {
+      "type": "object",
+      "properties": {
+       "endTime": {
+        "type": "string",
+        "description": "Required. The end time of the observed session. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       },
+       "endUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the end of the session relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the start of the session relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startTime": {
+        "type": "string",
+        "description": "Required. The start time of the observed session. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "endTime",
+       "endUtcOffset",
+       "startUtcOffset",
+       "startTime"
+      ],
+      "description": "Required. The time window when the food was logged."
+     },
+     "mealType": {
+      "type": "string",
+      "enum": [
+       "MEAL_TYPE_UNSPECIFIED",
+       "BEFORE_BREAKFAST",
+       "BREAKFAST",
+       "BEFORE_LUNCH",
+       "LUNCH",
+       "BEFORE_DINNER",
+       "DINNER",
+       "AFTER_DINNER",
+       "SNACK",
+       "ANYTIME"
+      ],
+      "description": "Optional. The meal category. One of `BREAKFAST`, `LUNCH`, `DINNER`, or `SNACK`."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "interval"
+    ]
+   }
+  },
+  "blood-glucose": {
+   "field": "bloodGlucose",
+   "schemaName": "BloodGlucose",
+   "apiVersion": "v4",
+   "description": "Represents a blood glucose level measurement. LINT: LEGACY_NAMES",
+   "timeKind": "sample",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "sampleTime": {
+      "type": "object",
+      "properties": {
+       "utcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time during the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "physicalTime": {
+        "type": "string",
+        "description": "Required. The time of the observation. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "utcOffset",
+       "physicalTime"
+      ],
+      "description": "Required. The time at which blood glucose was measured."
+     },
+     "bloodGlucoseMilligramsPerDeciliter": {
+      "type": "number",
+      "description": "Required. Blood glucose level concentration in mg/dL. Must be in the range `[0, 900]`."
+     },
+     "mealType": {
+      "type": "string",
+      "enum": [
+       "MEAL_TYPE_UNSPECIFIED",
+       "BREAKFAST",
+       "LUNCH",
+       "DINNER",
+       "SNACK"
+      ],
+      "description": "Optional. Meal type of the measurement."
+     },
+     "specimen": {
+      "type": "string",
+      "enum": [
+       "SPECIMEN_UNSPECIFIED",
+       "CAPILLARY_BLOOD",
+       "INTERSTITIAL_FLUID",
+       "PLASMA",
+       "SERUM",
+       "TEARS",
+       "WHOLE_BLOOD"
+      ],
+      "description": "Optional. Type of body fluid used to measure the blood glucose."
+     },
+     "notes": {
+      "type": "string",
+      "description": "Optional. Standard free-form notes captured at manual logging."
+     },
+     "measurementTiming": {
+      "type": "string",
+      "enum": [
+       "MEASUREMENT_TIMING_UNSPECIFIED",
+       "AFTER_MEAL",
+       "BEFORE_MEAL",
+       "FASTING",
+       "GENERAL",
+       "BEFORE_BED",
+       "OVER_NIGHT"
+      ],
+      "description": "Optional. Timing of the measurement."
+     },
+     "measurementSource": {
+      "type": "string",
+      "enum": [
+       "MEASUREMENT_SOURCE_UNSPECIFIED",
+       "SELF_MONITORING_BLOOD_GLUCOSE",
+       "CONTINUOUS_GLUCOSE_MONITORING",
+       "LAB_TEST"
+      ],
+      "description": "Optional. Source of the measurement."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "sampleTime",
+     "bloodGlucoseMilligramsPerDeciliter"
+    ]
+   }
+  },
+  "body-fat": {
+   "field": "bodyFat",
+   "schemaName": "BodyFat",
+   "apiVersion": "v4",
+   "description": "Body fat measurement.",
+   "timeKind": "sample",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "sampleTime": {
+      "type": "object",
+      "properties": {
+       "utcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time during the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "physicalTime": {
+        "type": "string",
+        "description": "Required. The time of the observation. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "utcOffset",
+       "physicalTime"
+      ],
+      "description": "Required. The time at which body fat was measured."
+     },
+     "percentage": {
+      "type": "number",
+      "description": "Required. Body fat percentage. Must be in the range `[0, 100]`."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "sampleTime",
+     "percentage"
+    ]
+   }
+  },
+  "heart-rate-variability": {
+   "field": "heartRateVariability",
+   "schemaName": "HeartRateVariability",
+   "apiVersion": "v4",
+   "description": "Captures user's heart rate variability (HRV) as measured by the root mean square of successive differences (RMSSD) between normal heartbeats or by standard deviation of the inter-beat intervals (SDNN).",
+   "timeKind": "sample",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "metadata": {
+      "type": "object",
+      "properties": {
+       "lowFrequencyPower": {
+        "type": "number",
+        "description": "Optional. The power in interbeat interval fluctuations within the low frequency band (0.04 Hz - 0.15 Hz)."
+       },
+       "highFrequencyPower": {
+        "type": "number",
+        "description": "Optional. The power in interbeat interval fluctuations within the high frequency band (0.15 Hz - 0.4 Hz)."
+       }
+      },
+      "additionalProperties": false,
+      "description": "Optional. Additional information about the heart rate variability measurement."
+     },
+     "standardDeviationMilliseconds": {
+      "type": "number",
+      "description": "Optional. The standard deviation of the heart rate variability measurement."
+     },
+     "sampleTime": {
+      "type": "object",
+      "properties": {
+       "utcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time during the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "physicalTime": {
+        "type": "string",
+        "description": "Required. The time of the observation. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "utcOffset",
+       "physicalTime"
+      ],
+      "description": "Required. The time of the heart rate variability measurement."
+     },
+     "rootMeanSquareOfSuccessiveDifferencesMilliseconds": {
+      "type": "number",
+      "description": "Optional. The root mean square of successive differences between normal heartbeats. This is a measure of heart rate variability used by Google Health. Must be in the range `[1, 200]`."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "sampleTime"
+    ]
+   }
+  },
+  "swim-lengths-data": {
+   "field": "swimLengthsData",
+   "schemaName": "SwimLengthsData",
+   "apiVersion": "v4",
+   "description": "Swim lengths data over the time interval.",
+   "timeKind": "interval",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "interval": {
+      "type": "object",
+      "properties": {
+       "endUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the end of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "endTime": {
+        "type": "string",
+        "description": "Required. Observed interval end time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       },
+       "startUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the start of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startTime": {
+        "type": "string",
+        "description": "Required. Observed interval start time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "endUtcOffset",
+       "endTime",
+       "startUtcOffset",
+       "startTime"
+      ],
+      "description": "Required. Observed interval."
+     },
+     "swimStrokeType": {
+      "type": "string",
+      "enum": [
+       "SWIM_STROKE_TYPE_UNSPECIFIED",
+       "FREESTYLE",
+       "BACKSTROKE",
+       "BREASTSTROKE",
+       "BUTTERFLY"
+      ],
+      "description": "Required. Swim stroke type."
+     },
+     "strokeCount": {
+      "type": [
+       "string",
+       "integer"
+      ],
+      "description": "Required. Number of strokes in the lap."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "interval",
+     "swimStrokeType",
+     "strokeCount"
+    ]
+   }
+  },
+  "daily-respiratory-rate": {
+   "field": "dailyRespiratoryRate",
+   "schemaName": "DailyRespiratoryRate",
+   "apiVersion": "v4",
+   "description": "A daily average respiratory rate (breaths per minute) for a day of the year. One data point per day calculated for the main sleep.",
+   "timeKind": "date",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "breathsPerMinute": {
+      "type": "number",
+      "description": "Required. The average number of breaths taken per minute."
+     },
+     "date": {
+      "type": "object",
+      "properties": {
+       "day": {
+        "type": "integer",
+        "description": "Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant."
+       },
+       "month": {
+        "type": "integer",
+        "description": "Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day."
+       },
+       "year": {
+        "type": "integer",
+        "description": "Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year."
+       }
+      },
+      "additionalProperties": false,
+      "description": "Required. The date on which the respiratory rate was measured."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "breathsPerMinute",
+     "date"
+    ]
+   }
+  },
+  "daily-sleep-temperature-derivations": {
+   "field": "dailySleepTemperatureDerivations",
+   "schemaName": "DailySleepTemperatureDerivations",
+   "apiVersion": "v4",
+   "description": "Provides derived sleep temperature values, calculated from skin or internal device temperature readings during sleep.",
+   "timeKind": "date",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "baselineTemperatureCelsius": {
+      "type": "number",
+      "description": "Optional. The user's baseline skin temperature. It is the median of the user's nightly skin temperature over the past 30 days."
+     },
+     "nightlyTemperatureCelsius": {
+      "type": "number",
+      "description": "Required. The user's nightly skin temperature. It is the mean of skin temperature samples taken from the user’s sleep."
+     },
+     "date": {
+      "type": "object",
+      "properties": {
+       "day": {
+        "type": "integer",
+        "description": "Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant."
+       },
+       "month": {
+        "type": "integer",
+        "description": "Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day."
+       },
+       "year": {
+        "type": "integer",
+        "description": "Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year."
+       }
+      },
+      "additionalProperties": false,
+      "description": "Required. Date for which the sleep temperature derivations are calculated."
+     },
+     "relativeNightlyStddev30dCelsius": {
+      "type": "number",
+      "description": "Optional. The standard deviation of the user’s relative nightly skin temperature (temperature - baseline) over the past 30 days."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "nightlyTemperatureCelsius",
+     "date"
+    ]
+   }
+  },
+  "food": {
+   "field": "food",
+   "schemaName": "Food",
+   "apiVersion": "v4",
+   "description": "Represents a food item.",
+   "timeKind": "none",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "totalFat": {
+      "type": "object",
+      "properties": {
+       "grams": {
+        "type": "number",
+        "description": "Required. The weight value in grams. Must be in the range `[0, 100000]`."
+       },
+       "userProvidedUnit": {
+        "type": "string",
+        "enum": [
+         "WEIGHT_UNIT_UNSPECIFIED",
+         "GRAM",
+         "KILOGRAM",
+         "OUNCE",
+         "POUND",
+         "STONE",
+         "MILLIGRAM",
+         "MICROGRAM",
+         "NANOGRAM"
+        ],
+        "description": "Optional. Value representing the user provided unit."
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "grams"
+      ],
+      "description": "Optional. Value representing the total fat of the food for the default serving."
+     },
+     "languageCode": {
+      "type": "string",
+      "description": "Optional. The language code where the food is available in format xx-XX. Supported values are defined in Settings.food_language_code."
+     },
+     "energyFromFat": {
+      "type": "object",
+      "properties": {
+       "userProvidedUnit": {
+        "type": "string",
+        "enum": [
+         "ENERGY_UNIT_UNSPECIFIED",
+         "JOULE",
+         "KILOJOULE",
+         "KILOCALORIE",
+         "SMALL_CALORIE",
+         "CALORIE"
+        ],
+        "description": "Optional. Value representing the user provided unit."
+       },
+       "kcal": {
+        "type": "number",
+        "description": "Required. The energy value in kilocalories. Must be in the range `[0, 100000]`."
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "kcal"
+      ],
+      "description": "Optional. Value representing the energy from fat of the food for the default serving."
+     },
+     "defaultServing": {
+      "type": "object",
+      "properties": {
+       "amount": {
+        "type": "number",
+        "description": "Optional. Amount of food consumed, fractional values are supported."
+       },
+       "foodMeasurementUnit": {
+        "type": "string",
+        "description": "Required. Food measurement unit"
+       },
+       "multiplier": {
+        "type": "number",
+        "description": "Optional. Value representing the multiplier used to compute the energy when using this serving instead of the default serving."
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "foodMeasurementUnit"
+      ],
+      "description": "Required. Value representing the default serving of the food."
+     },
+     "brand": {
+      "type": "string",
+      "description": "Optional. The brand of the food."
+     },
+     "displayName": {
+      "type": "string",
+      "description": "Required. The display name of the food."
+     },
+     "mealType": {
+      "type": "string",
+      "enum": [
+       "MEAL_TYPE_UNSPECIFIED",
+       "BEFORE_BREAKFAST",
+       "BREAKFAST",
+       "BEFORE_LUNCH",
+       "LUNCH",
+       "BEFORE_DINNER",
+       "DINNER",
+       "AFTER_DINNER",
+       "SNACK",
+       "ANYTIME"
+      ],
+      "description": "Optional. The meal type associated with this food."
+     },
+     "energyMin": {
+      "type": "object",
+      "properties": {
+       "userProvidedUnit": {
+        "type": "string",
+        "enum": [
+         "ENERGY_UNIT_UNSPECIFIED",
+         "JOULE",
+         "KILOJOULE",
+         "KILOCALORIE",
+         "SMALL_CALORIE",
+         "CALORIE"
+        ],
+        "description": "Optional. Value representing the user provided unit."
+       },
+       "kcal": {
+        "type": "number",
+        "description": "Required. The energy value in kilocalories. Must be in the range `[0, 100000]`."
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "kcal"
+      ],
+      "description": "Optional. Value representing the minimum energy of the food for the default serving."
+     },
+     "servings": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "amount": {
+         "type": "number",
+         "description": "Optional. Amount of food consumed, fractional values are supported."
+        },
+        "foodMeasurementUnit": {
+         "type": "string",
+         "description": "Required. Food measurement unit"
+        },
+        "multiplier": {
+         "type": "number",
+         "description": "Optional. Value representing the multiplier used to compute the energy when using this serving instead of the default serving."
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "foodMeasurementUnit"
+       ]
+      },
+      "description": "Optional. The serving of the food."
+     },
+     "nutrients": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "quantity": {
+         "type": "object",
+         "properties": {
+          "grams": {
+           "type": "number",
+           "description": "Required. The weight value in grams. Must be in the range `[0, 100000]`."
+          },
+          "userProvidedUnit": {
+           "type": "string",
+           "enum": [
+            "WEIGHT_UNIT_UNSPECIFIED",
+            "GRAM",
+            "KILOGRAM",
+            "OUNCE",
+            "POUND",
+            "STONE",
+            "MILLIGRAM",
+            "MICROGRAM",
+            "NANOGRAM"
+           ],
+           "description": "Optional. Value representing the user provided unit."
+          }
+         },
+         "additionalProperties": false,
+         "required": [
+          "grams"
+         ],
+         "description": "Required. The quantity of the nutrient, measured in grams."
+        },
+        "nutrient": {
+         "type": "string",
+         "enum": [
+          "NUTRIENT_UNSPECIFIED",
+          "BIOTIN",
+          "CAFFEINE",
+          "CALCIUM",
+          "CHLORIDE",
+          "CARBOHYDRATES",
+          "CHOLESTEROL",
+          "CHROMIUM",
+          "COPPER",
+          "DIETARY_FIBER",
+          "FOLIC_ACID",
+          "IODINE",
+          "IRON",
+          "MAGNESIUM",
+          "MANGANESE",
+          "MOLYBDENUM",
+          "MONOUNSATURATED_FAT",
+          "NIACIN",
+          "PANTOTHENIC_ACID",
+          "PHOSPHORUS",
+          "POLYUNSATURATED_FAT",
+          "POTASSIUM",
+          "PROTEIN",
+          "RIBOFLAVIN",
+          "SATURATED_FAT",
+          "SELENIUM",
+          "SODIUM",
+          "SUGAR",
+          "THIAMIN",
+          "TRANS_FAT",
+          "UNSATURATED_FAT",
+          "VITAMIN_A",
+          "VITAMIN_B12",
+          "VITAMIN_B6",
+          "VITAMIN_C",
+          "VITAMIN_D",
+          "VITAMIN_E",
+          "VITAMIN_K",
+          "ZINC",
+          "FOLATE"
+         ],
+         "description": "Required. The nutrient type."
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "quantity",
+        "nutrient"
+       ]
+      },
+      "description": "Optional. Value representing the nutrients of the food for the default serving."
+     },
+     "energyAvg": {
+      "type": "object",
+      "properties": {
+       "userProvidedUnit": {
+        "type": "string",
+        "enum": [
+         "ENERGY_UNIT_UNSPECIFIED",
+         "JOULE",
+         "KILOJOULE",
+         "KILOCALORIE",
+         "SMALL_CALORIE",
+         "CALORIE"
+        ],
+        "description": "Optional. Value representing the user provided unit."
+       },
+       "kcal": {
+        "type": "number",
+        "description": "Required. The energy value in kilocalories. Must be in the range `[0, 100000]`."
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "kcal"
+      ],
+      "description": "Optional. Value representing the average energy of the food for the default serving."
+     },
+     "accessLevel": {
+      "type": "string",
+      "enum": [
+       "FOOD_ACCESS_LEVEL_UNSPECIFIED",
+       "FOOD_ACCESS_LEVEL_PUBLIC",
+       "FOOD_ACCESS_LEVEL_PRIVATE"
+      ],
+      "description": "Required. The access level of the food."
+     },
+     "energyMax": {
+      "type": "object",
+      "properties": {
+       "userProvidedUnit": {
+        "type": "string",
+        "enum": [
+         "ENERGY_UNIT_UNSPECIFIED",
+         "JOULE",
+         "KILOJOULE",
+         "KILOCALORIE",
+         "SMALL_CALORIE",
+         "CALORIE"
+        ],
+        "description": "Optional. Value representing the user provided unit."
+       },
+       "kcal": {
+        "type": "number",
+        "description": "Required. The energy value in kilocalories. Must be in the range `[0, 100000]`."
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "kcal"
+      ],
+      "description": "Optional. Value representing the maximum energy of the food for the default serving."
+     },
+     "description": {
+      "type": "string",
+      "description": "Optional. The description of the food."
+     },
+     "totalCarbohydrate": {
+      "type": "object",
+      "properties": {
+       "grams": {
+        "type": "number",
+        "description": "Required. The weight value in grams. Must be in the range `[0, 100000]`."
+       },
+       "userProvidedUnit": {
+        "type": "string",
+        "enum": [
+         "WEIGHT_UNIT_UNSPECIFIED",
+         "GRAM",
+         "KILOGRAM",
+         "OUNCE",
+         "POUND",
+         "STONE",
+         "MILLIGRAM",
+         "MICROGRAM",
+         "NANOGRAM"
+        ],
+        "description": "Optional. Value representing the user provided unit."
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "grams"
+      ],
+      "description": "Optional. Value representing the total carbohydrate of the food for the default serving."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "defaultServing",
+     "displayName",
+     "accessLevel"
+    ]
+   }
+  },
+  "hydration-log": {
+   "field": "hydrationLog",
+   "schemaName": "HydrationLog",
+   "apiVersion": "v4",
+   "description": "Holds information about a user logged hydration.",
+   "timeKind": "interval",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "interval": {
+      "type": "object",
+      "properties": {
+       "endTime": {
+        "type": "string",
+        "description": "Required. The end time of the observed session. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       },
+       "endUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the end of the session relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the start of the session relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startTime": {
+        "type": "string",
+        "description": "Required. The start time of the observed session. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "endTime",
+       "endUtcOffset",
+       "startUtcOffset",
+       "startTime"
+      ],
+      "description": "Required. Observed interval."
+     },
+     "amountConsumed": {
+      "type": "object",
+      "properties": {
+       "userProvidedUnit": {
+        "type": "string",
+        "enum": [
+         "VOLUME_UNIT_UNSPECIFIED",
+         "CUP_IMPERIAL",
+         "CUP_US",
+         "FLUID_OUNCE_IMPERIAL",
+         "FLUID_OUNCE_US",
+         "LITER",
+         "MILLILITER",
+         "PINT_IMPERIAL",
+         "PINT_US"
+        ],
+        "description": "Optional. Value representing the user provided unit, used only for user-facing input and display purposes. In the API format, all volume quantities are converted to milliliters."
+       },
+       "milliliters": {
+        "type": "number",
+        "description": "Required. Value representing the volume in milliliters. Must be in the range `[0, 100000]`."
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "milliliters"
+      ],
+      "description": "Required. Amount of liquid (ex. water) consumed."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "interval",
+     "amountConsumed"
+    ]
+   }
+  },
+  "time-in-heart-rate-zone": {
+   "field": "timeInHeartRateZone",
+   "schemaName": "TimeInHeartRateZone",
+   "apiVersion": "v4",
+   "description": "Time in heart rate zone record. It's an interval spent in specific heart rate zone.",
+   "timeKind": "interval",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "interval": {
+      "type": "object",
+      "properties": {
+       "endUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the end of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "endTime": {
+        "type": "string",
+        "description": "Required. Observed interval end time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       },
+       "startUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the start of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startTime": {
+        "type": "string",
+        "description": "Required. Observed interval start time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "endUtcOffset",
+       "endTime",
+       "startUtcOffset",
+       "startTime"
+      ],
+      "description": "Required. Observed interval."
+     },
+     "heartRateZoneType": {
+      "type": "string",
+      "enum": [
+       "HEART_RATE_ZONE_TYPE_UNSPECIFIED",
+       "LIGHT",
+       "MODERATE",
+       "VIGOROUS",
+       "PEAK"
+      ],
+      "description": "Required. Heart rate zone type."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "interval",
+     "heartRateZoneType"
+    ]
+   }
+  },
+  "ovulation-test": {
+   "field": "ovulationTest",
+   "schemaName": "OvulationTest",
+   "apiVersion": "v4",
+   "description": "Ovulation test record.",
+   "timeKind": "sample",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "sampleTime": {
+      "type": "object",
+      "properties": {
+       "utcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time during the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "physicalTime": {
+        "type": "string",
+        "description": "Required. The time of the observation. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "utcOffset",
+       "physicalTime"
+      ],
+      "description": "Required. The time at which ovulation test was measured."
+     },
+     "result": {
+      "type": "string",
+      "enum": [
+       "OVULATION_TEST_RESULT_UNSPECIFIED",
+       "NEGATIVE",
+       "LUTEINIZING_HORMONE_SURGE",
+       "ESTROGEN_SURGE",
+       "POSITIVE",
+       "INDETERMINATE"
+      ],
+      "description": "Required. The result of the ovulation test."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "sampleTime",
+     "result"
+    ]
+   }
+  },
+  "exercise": {
+   "field": "exercise",
+   "schemaName": "Exercise",
+   "apiVersion": "v4",
+   "description": "An exercise that stores information about a physical activity.",
+   "timeKind": "interval",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "notes": {
+      "type": "string",
+      "description": "Optional. Standard free-form notes captured at manual logging."
+     },
+     "splitSummaries": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "endTime": {
+         "type": "string",
+         "description": "Required. Lap end time RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+        },
+        "startUtcOffset": {
+         "type": "string",
+         "description": "Required. Lap start time offset from UTC Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+        },
+        "endUtcOffset": {
+         "type": "string",
+         "description": "Required. Lap end time offset from UTC Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+        },
+        "splitType": {
+         "type": "string",
+         "enum": [
+          "SPLIT_TYPE_UNSPECIFIED",
+          "MANUAL",
+          "DURATION",
+          "DISTANCE",
+          "CALORIES"
+         ],
+         "description": "Required. Method used to split the exercise laps. Users may manually mark the lap as complete even if the tracking is automatic."
+        },
+        "metricsSummary": {
+         "type": "object",
+         "properties": {
+          "elevationGainMillimeters": {
+           "type": "number",
+           "description": "Optional. Total elevation gain during the exercise."
+          },
+          "activeZoneMinutes": {
+           "type": [
+            "string",
+            "integer"
+           ],
+           "description": "Optional. Total active zone minutes for the exercise."
+          },
+          "distanceMillimeters": {
+           "type": "number",
+           "description": "Optional. Total distance covered by the user during the exercise."
+          },
+          "averagePaceSecondsPerMeter": {
+           "type": "number",
+           "description": "Optional. Average pace in seconds per meter."
+          },
+          "runVo2Max": {
+           "type": "number",
+           "description": "Optional. Run VO2 max value for the exercise. Only present in the running exercises at the top level as in the summary of the whole exercise."
+          },
+          "averageHeartRateBeatsPerMinute": {
+           "type": [
+            "string",
+            "integer"
+           ],
+           "description": "Optional. Average heart rate during the exercise."
+          },
+          "totalSwimLengths": {
+           "type": "number",
+           "description": "Optional. Number of full pool lengths completed during the exercise. Only present in the swimming exercises at the top level as in the summary of the whole exercise."
+          },
+          "caloriesKcal": {
+           "type": "number",
+           "description": "Optional. Total calories burned by the user during the exercise."
+          },
+          "mobilityMetrics": {
+           "type": "object",
+           "properties": {
+            "avgGroundContactTimeDuration": {
+             "type": "string",
+             "description": "Optional. The ground contact time for a particular stride is the amount of time for which the foot was in contact with the ground on that stride Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+            },
+            "avgStrideLengthMillimeters": {
+             "type": [
+              "string",
+              "integer"
+             ],
+             "description": "Optional. Stride length is a measure of the distance covered by a single stride"
+            },
+            "avgVerticalRatio": {
+             "type": "number",
+             "description": "Optional. Vertical oscillation/stride length between [5.0, 11.0]."
+            },
+            "avgVerticalOscillationMillimeters": {
+             "type": [
+              "string",
+              "integer"
+             ],
+             "description": "Optional. Distance off the ground your center of mass moves with each stride while running"
+            },
+            "avgCadenceStepsPerMinute": {
+             "type": "number",
+             "description": "Optional. Cadence is a measure of the frequency of your foot strikes. Steps / min in real time during workout."
+            }
+           },
+           "additionalProperties": false,
+           "description": "Optional. Mobility workouts specific metrics. Only present in the advanced running exercises."
+          },
+          "steps": {
+           "type": [
+            "string",
+            "integer"
+           ],
+           "description": "Optional. Total steps taken during the exercise."
+          },
+          "averageSpeedMillimetersPerSecond": {
+           "type": "number",
+           "description": "Optional. Average speed in millimeters per second."
+          },
+          "heartRateZoneDurations": {
+           "type": "object",
+           "properties": {
+            "vigorousTime": {
+             "type": "string",
+             "description": "Optional. Time spent in vigorous heart rate zone. Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+            },
+            "moderateTime": {
+             "type": "string",
+             "description": "Optional. Time spent in moderate heart rate zone. Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+            },
+            "peakTime": {
+             "type": "string",
+             "description": "Optional. Time spent in peak heart rate zone. Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+            },
+            "lightTime": {
+             "type": "string",
+             "description": "Optional. Time spent in light heart rate zone. Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+            }
+           },
+           "additionalProperties": false,
+           "description": "Optional. Time spent in each heart rate zone."
+          }
+         },
+         "additionalProperties": false,
+         "description": "Required. Summary metrics for this split."
+        },
+        "startTime": {
+         "type": "string",
+         "description": "Required. Lap start time RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "endTime",
+        "startUtcOffset",
+        "endUtcOffset",
+        "splitType",
+        "metricsSummary",
+        "startTime"
+       ]
+      },
+      "description": "Optional. Laps or splits recorded within an exercise. Laps could be split based on distance or other criteria (duration, etc.) Laps should not be overlapping with each other."
+     },
+     "exerciseMetadata": {
+      "type": "object",
+      "properties": {
+       "hasGps": {
+        "type": "boolean",
+        "description": "Optional. Whether the exercise had GPS tracking."
+       },
+       "poolLengthMillimeters": {
+        "type": [
+         "string",
+         "integer"
+        ],
+        "description": "Optional. Pool length in millimeters. Only present in the swimming exercises."
+       }
+      },
+      "additionalProperties": false,
+      "description": "Optional. Additional exercise metadata."
+     },
+     "metricsSummary": {
+      "type": "object",
+      "properties": {
+       "elevationGainMillimeters": {
+        "type": "number",
+        "description": "Optional. Total elevation gain during the exercise."
+       },
+       "activeZoneMinutes": {
+        "type": [
+         "string",
+         "integer"
+        ],
+        "description": "Optional. Total active zone minutes for the exercise."
+       },
+       "distanceMillimeters": {
+        "type": "number",
+        "description": "Optional. Total distance covered by the user during the exercise."
+       },
+       "averagePaceSecondsPerMeter": {
+        "type": "number",
+        "description": "Optional. Average pace in seconds per meter."
+       },
+       "runVo2Max": {
+        "type": "number",
+        "description": "Optional. Run VO2 max value for the exercise. Only present in the running exercises at the top level as in the summary of the whole exercise."
+       },
+       "averageHeartRateBeatsPerMinute": {
+        "type": [
+         "string",
+         "integer"
+        ],
+        "description": "Optional. Average heart rate during the exercise."
+       },
+       "totalSwimLengths": {
+        "type": "number",
+        "description": "Optional. Number of full pool lengths completed during the exercise. Only present in the swimming exercises at the top level as in the summary of the whole exercise."
+       },
+       "caloriesKcal": {
+        "type": "number",
+        "description": "Optional. Total calories burned by the user during the exercise."
+       },
+       "mobilityMetrics": {
+        "type": "object",
+        "properties": {
+         "avgGroundContactTimeDuration": {
+          "type": "string",
+          "description": "Optional. The ground contact time for a particular stride is the amount of time for which the foot was in contact with the ground on that stride Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+         },
+         "avgStrideLengthMillimeters": {
+          "type": [
+           "string",
+           "integer"
+          ],
+          "description": "Optional. Stride length is a measure of the distance covered by a single stride"
+         },
+         "avgVerticalRatio": {
+          "type": "number",
+          "description": "Optional. Vertical oscillation/stride length between [5.0, 11.0]."
+         },
+         "avgVerticalOscillationMillimeters": {
+          "type": [
+           "string",
+           "integer"
+          ],
+          "description": "Optional. Distance off the ground your center of mass moves with each stride while running"
+         },
+         "avgCadenceStepsPerMinute": {
+          "type": "number",
+          "description": "Optional. Cadence is a measure of the frequency of your foot strikes. Steps / min in real time during workout."
+         }
+        },
+        "additionalProperties": false,
+        "description": "Optional. Mobility workouts specific metrics. Only present in the advanced running exercises."
+       },
+       "steps": {
+        "type": [
+         "string",
+         "integer"
+        ],
+        "description": "Optional. Total steps taken during the exercise."
+       },
+       "averageSpeedMillimetersPerSecond": {
+        "type": "number",
+        "description": "Optional. Average speed in millimeters per second."
+       },
+       "heartRateZoneDurations": {
+        "type": "object",
+        "properties": {
+         "vigorousTime": {
+          "type": "string",
+          "description": "Optional. Time spent in vigorous heart rate zone. Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+         },
+         "moderateTime": {
+          "type": "string",
+          "description": "Optional. Time spent in moderate heart rate zone. Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+         },
+         "peakTime": {
+          "type": "string",
+          "description": "Optional. Time spent in peak heart rate zone. Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+         },
+         "lightTime": {
+          "type": "string",
+          "description": "Optional. Time spent in light heart rate zone. Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+         }
+        },
+        "additionalProperties": false,
+        "description": "Optional. Time spent in each heart rate zone."
+       }
+      },
+      "additionalProperties": false,
+      "description": "Required. Summary metrics for this exercise ( )"
+     },
+     "exerciseType": {
+      "type": "string",
+      "enum": [
+       "EXERCISE_TYPE_UNSPECIFIED",
+       "AEROBIC_WORKOUT",
+       "ARCHERY",
+       "ASSAULT_BIKE",
+       "BACKPACKING",
+       "BADMINTON",
+       "BALLET",
+       "BALLROOM_DANCE",
+       "BARRE_CLASS",
+       "BASEBALL",
+       "BASKETBALL",
+       "BIKING",
+       "BILLIARDS",
+       "BODY_WEIGHT",
+       "BOOTCAMP",
+       "BOWLING",
+       "BOXING",
+       "BREAKDANCING",
+       "CALISTHENICS",
+       "CANOEING",
+       "CARDIO_SCULPT",
+       "CARDIO_WORKOUT",
+       "CARPENTRY",
+       "CHEERLEADING",
+       "CIRCUIT_TRAINING",
+       "CLEANING",
+       "CLIMBING",
+       "CORE_TRAINING",
+       "CRICKET",
+       "CROQUET",
+       "CROSS_COUNTRY_SKI",
+       "CROSS_TRAINING",
+       "CROSSFIT",
+       "CURLING",
+       "DANCING",
+       "DIVING",
+       "ELECTRIC_BIKE",
+       "ELECTRIC_SCOOTER",
+       "ELLIPTICAL",
+       "EQUESTRIAN_SPORTS",
+       "EXERCISE_CLASS",
+       "FENCING",
+       "FIELD_HOCKEY",
+       "FISHING",
+       "FITNESS_GAMING",
+       "FOILING",
+       "FOOTBALL_AMERICAN",
+       "FOOTBALL_AUSTRALIAN",
+       "FREE_WEIGHTS",
+       "FRISBEE_PLAYING_GENERAL",
+       "FUNCTIONAL_STRENGTH_TRAINING",
+       "GARDENING",
+       "GOLF",
+       "GYMNASTICS",
+       "HANDBALL",
+       "HAND_CYCLING",
+       "HIIT",
+       "HIKING",
+       "HIP_HOP",
+       "HOCKEY",
+       "HOEING",
+       "HOUSEHOLD_CHORES",
+       "HUNTING",
+       "ICE_SKATING",
+       "INCLINE_RUN",
+       "INCLINE_WALK",
+       "INDOOR_CLIMBING",
+       "INTERVAL_WORKOUT",
+       "JAZZ_DANCE",
+       "JIU_JITSU",
+       "JUMPING_ROPE",
+       "KARATE",
+       "KAYAKING",
+       "KICKBOXING",
+       "KITESURFING",
+       "LACROSSE",
+       "MARTIAL_ARTS",
+       "MEDITATE",
+       "MODERN_DANCE",
+       "MOTOCROSS",
+       "MOTORCYCLE",
+       "MOUNTAIN_BIKE",
+       "MOWING_LAWN",
+       "MUAY_THAI",
+       "MULTISPORT",
+       "MUSICAL_PERFORMANCE",
+       "NORDIC_WALKING",
+       "ORIENTEERING",
+       "OTHER",
+       "OUTDOOR_BIKE",
+       "OUTDOOR_WORKOUT",
+       "PADDLEBOARDING",
+       "PADEL",
+       "PAINTING",
+       "PARAGLIDING",
+       "PARKOUR",
+       "PICKELBALL",
+       "PILATES",
+       "POLO",
+       "POWERLIFTING",
+       "POWER_WALKING",
+       "RACKET_SPORTS",
+       "RACQUETBALL",
+       "RESISTANCE_BANDS",
+       "ROCK_CLIMBING",
+       "ROLLERBLADING",
+       "ROLLER_SKATING",
+       "ROWING",
+       "ROWING_MACHINE",
+       "RUCKING",
+       "RUGBY",
+       "RUNNING",
+       "SAILING",
+       "SCOOTERING",
+       "SCUBA_DIVING",
+       "SHOOTING",
+       "SHOVELING",
+       "SKATEBOARDING",
+       "SKATING",
+       "SKIING",
+       "SKYDIVING",
+       "SNORKELING",
+       "SNOWBOARDING",
+       "SNOWMOBILING",
+       "SNOWSHOEING",
+       "SNOW_SPORT",
+       "SOCCER",
+       "SOFTBALL",
+       "SPEED_SKATING",
+       "SPINNING",
+       "SPORT",
+       "SQUASH",
+       "STAIRCLIMBER",
+       "STATIONARY_BIKE",
+       "STEP_TRAINING",
+       "STRENGTH_TRAINING",
+       "STRETCHING",
+       "STROLLER_WALK",
+       "SURFING",
+       "SWIMMING",
+       "SWIMMING_OPEN_WATER",
+       "SWIMMING_POOL",
+       "SYNCHRONIZED_SWIMMING",
+       "TABATA_WORKOUT",
+       "TABLE_TENNIS",
+       "TAEKWONDO",
+       "TAI_CHI",
+       "TANGO",
+       "TENNIS",
+       "TRACK_AND_FIELD",
+       "TRAIL_RUN",
+       "TRAMPOLINE",
+       "TREADMILL",
+       "TREADMILL_WALK",
+       "TRX",
+       "ULTIMATE_FRISBEE",
+       "UNICYCLING",
+       "VOLLEYBALL",
+       "VOLLEYBALL_BEACH",
+       "WAKEBOARDING",
+       "WALKING",
+       "WALK_WITH_WEIGHTS",
+       "WATER_AEROBICS",
+       "WATER_JOGGING",
+       "WATER_POLO",
+       "WATER_SKIING",
+       "WATER_SPORT",
+       "WATER_VOLLEYBALL",
+       "WEEDING",
+       "WEIGHTLIFTING",
+       "WEIGHT_MACHINES",
+       "WEIGHTS",
+       "WHEELCHAIR",
+       "WINDSURFING",
+       "WORKOUT",
+       "WRESTLING",
+       "YOGA",
+       "YOGA_BIKRAM",
+       "YOGA_HATHA",
+       "YOGA_POWER",
+       "YOGA_VINYASA",
+       "ZUMBA"
+      ],
+      "description": "Required. The type of activity performed during an exercise."
+     },
+     "interval": {
+      "type": "object",
+      "properties": {
+       "endTime": {
+        "type": "string",
+        "description": "Required. The end time of the observed session. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       },
+       "endUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the end of the session relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the start of the session relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startTime": {
+        "type": "string",
+        "description": "Required. The start time of the observed session. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "endTime",
+       "endUtcOffset",
+       "startUtcOffset",
+       "startTime"
+      ],
+      "description": "Required. Observed exercise interval"
+     },
+     "displayName": {
+      "type": "string",
+      "description": "Required. The localized, human-readable name of the exercise. For all exercise types other than `OTHER`, the system ignores client input and overrides this field with a generated name based on `exercise_type` (e.g., \"Walking\" for `WALKING`). If `exercise_type` is `OTHER`, this field can contain the…"
+     },
+     "activeDuration": {
+      "type": "string",
+      "description": "Optional. Duration excluding pauses. Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+     },
+     "splits": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "endTime": {
+         "type": "string",
+         "description": "Required. Lap end time RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+        },
+        "startUtcOffset": {
+         "type": "string",
+         "description": "Required. Lap start time offset from UTC Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+        },
+        "endUtcOffset": {
+         "type": "string",
+         "description": "Required. Lap end time offset from UTC Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+        },
+        "splitType": {
+         "type": "string",
+         "enum": [
+          "SPLIT_TYPE_UNSPECIFIED",
+          "MANUAL",
+          "DURATION",
+          "DISTANCE",
+          "CALORIES"
+         ],
+         "description": "Required. Method used to split the exercise laps. Users may manually mark the lap as complete even if the tracking is automatic."
+        },
+        "metricsSummary": {
+         "type": "object",
+         "properties": {
+          "elevationGainMillimeters": {
+           "type": "number",
+           "description": "Optional. Total elevation gain during the exercise."
+          },
+          "activeZoneMinutes": {
+           "type": [
+            "string",
+            "integer"
+           ],
+           "description": "Optional. Total active zone minutes for the exercise."
+          },
+          "distanceMillimeters": {
+           "type": "number",
+           "description": "Optional. Total distance covered by the user during the exercise."
+          },
+          "averagePaceSecondsPerMeter": {
+           "type": "number",
+           "description": "Optional. Average pace in seconds per meter."
+          },
+          "runVo2Max": {
+           "type": "number",
+           "description": "Optional. Run VO2 max value for the exercise. Only present in the running exercises at the top level as in the summary of the whole exercise."
+          },
+          "averageHeartRateBeatsPerMinute": {
+           "type": [
+            "string",
+            "integer"
+           ],
+           "description": "Optional. Average heart rate during the exercise."
+          },
+          "totalSwimLengths": {
+           "type": "number",
+           "description": "Optional. Number of full pool lengths completed during the exercise. Only present in the swimming exercises at the top level as in the summary of the whole exercise."
+          },
+          "caloriesKcal": {
+           "type": "number",
+           "description": "Optional. Total calories burned by the user during the exercise."
+          },
+          "mobilityMetrics": {
+           "type": "object",
+           "properties": {
+            "avgGroundContactTimeDuration": {
+             "type": "string",
+             "description": "Optional. The ground contact time for a particular stride is the amount of time for which the foot was in contact with the ground on that stride Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+            },
+            "avgStrideLengthMillimeters": {
+             "type": [
+              "string",
+              "integer"
+             ],
+             "description": "Optional. Stride length is a measure of the distance covered by a single stride"
+            },
+            "avgVerticalRatio": {
+             "type": "number",
+             "description": "Optional. Vertical oscillation/stride length between [5.0, 11.0]."
+            },
+            "avgVerticalOscillationMillimeters": {
+             "type": [
+              "string",
+              "integer"
+             ],
+             "description": "Optional. Distance off the ground your center of mass moves with each stride while running"
+            },
+            "avgCadenceStepsPerMinute": {
+             "type": "number",
+             "description": "Optional. Cadence is a measure of the frequency of your foot strikes. Steps / min in real time during workout."
+            }
+           },
+           "additionalProperties": false,
+           "description": "Optional. Mobility workouts specific metrics. Only present in the advanced running exercises."
+          },
+          "steps": {
+           "type": [
+            "string",
+            "integer"
+           ],
+           "description": "Optional. Total steps taken during the exercise."
+          },
+          "averageSpeedMillimetersPerSecond": {
+           "type": "number",
+           "description": "Optional. Average speed in millimeters per second."
+          },
+          "heartRateZoneDurations": {
+           "type": "object",
+           "properties": {
+            "vigorousTime": {
+             "type": "string",
+             "description": "Optional. Time spent in vigorous heart rate zone. Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+            },
+            "moderateTime": {
+             "type": "string",
+             "description": "Optional. Time spent in moderate heart rate zone. Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+            },
+            "peakTime": {
+             "type": "string",
+             "description": "Optional. Time spent in peak heart rate zone. Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+            },
+            "lightTime": {
+             "type": "string",
+             "description": "Optional. Time spent in light heart rate zone. Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+            }
+           },
+           "additionalProperties": false,
+           "description": "Optional. Time spent in each heart rate zone."
+          }
+         },
+         "additionalProperties": false,
+         "description": "Required. Summary metrics for this split."
+        },
+        "startTime": {
+         "type": "string",
+         "description": "Required. Lap start time RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "endTime",
+        "startUtcOffset",
+        "endUtcOffset",
+        "splitType",
+        "metricsSummary",
+        "startTime"
+       ]
+      },
+      "description": "Optional. The default split is 1 km or 1 mile. - if the movement distance is less than the default, then there are no splits - if the movement distance is greater than or equal to the default, then we have splits"
+     },
+     "exerciseEvents": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "eventUtcOffset": {
+         "type": "string",
+         "description": "Required. Exercise event time offset from UTC Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+        },
+        "exerciseEventType": {
+         "type": "string",
+         "enum": [
+          "EXERCISE_EVENT_TYPE_UNSPECIFIED",
+          "START",
+          "STOP",
+          "PAUSE",
+          "RESUME",
+          "AUTO_PAUSE",
+          "AUTO_RESUME"
+         ],
+         "description": "Required. The type of the event, such as start, stop, pause, resume."
+        },
+        "eventTime": {
+         "type": "string",
+         "description": "Required. Exercise event time RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "eventUtcOffset",
+        "exerciseEventType",
+        "eventTime"
+       ]
+      },
+      "description": "Optional. Exercise events that happen during an exercise, such as pause & restarts."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "metricsSummary",
+     "exerciseType",
+     "interval",
+     "displayName"
+    ]
+   }
+  },
+  "daily-heart-rate-zones": {
+   "field": "dailyHeartRateZones",
+   "schemaName": "DailyHeartRateZones",
+   "apiVersion": "v4",
+   "description": "User's heart rate zone thresholds based on the Karvonen algorithm for a specific day.",
+   "timeKind": "date",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "heartRateZones": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "heartRateZoneType": {
+         "type": "string",
+         "enum": [
+          "HEART_RATE_ZONE_TYPE_UNSPECIFIED",
+          "LIGHT",
+          "MODERATE",
+          "VIGOROUS",
+          "PEAK"
+         ],
+         "description": "Required. The heart rate zone type."
+        },
+        "maxBeatsPerMinute": {
+         "type": [
+          "string",
+          "integer"
+         ],
+         "description": "Required. Maximum heart rate for this zone in beats per minute."
+        },
+        "minBeatsPerMinute": {
+         "type": [
+          "string",
+          "integer"
+         ],
+         "description": "Required. Minimum heart rate for this zone in beats per minute."
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "heartRateZoneType",
+        "maxBeatsPerMinute",
+        "minBeatsPerMinute"
+       ]
+      },
+      "description": "Required. The heart rate zones."
+     },
+     "date": {
+      "type": "object",
+      "properties": {
+       "day": {
+        "type": "integer",
+        "description": "Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant."
+       },
+       "month": {
+        "type": "integer",
+        "description": "Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day."
+       },
+       "year": {
+        "type": "integer",
+        "description": "Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year."
+       }
+      },
+      "additionalProperties": false,
+      "description": "Required. Date (in user's timezone) of the heart rate zones record."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "heartRateZones",
+     "date"
+    ]
+   }
+  },
+  "daily-resting-heart-rate": {
+   "field": "dailyRestingHeartRate",
+   "schemaName": "DailyRestingHeartRate",
+   "apiVersion": "v4",
+   "description": "Measures the daily resting heart rate for a user, calculated using the all day heart rate measurements.",
+   "timeKind": "date",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "date": {
+      "type": "object",
+      "properties": {
+       "day": {
+        "type": "integer",
+        "description": "Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant."
+       },
+       "month": {
+        "type": "integer",
+        "description": "Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day."
+       },
+       "year": {
+        "type": "integer",
+        "description": "Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year."
+       }
+      },
+      "additionalProperties": false,
+      "description": "Required. Date (in the user's timezone) of the resting heart rate measurement."
+     },
+     "beatsPerMinute": {
+      "type": [
+       "string",
+       "integer"
+      ],
+      "description": "Required. The resting heart rate value in beats per minute."
+     },
+     "dailyRestingHeartRateMetadata": {
+      "type": "object",
+      "properties": {
+       "calculationMethod": {
+        "type": "string",
+        "enum": [
+         "CALCULATION_METHOD_UNSPECIFIED",
+         "WITH_SLEEP",
+         "ONLY_WITH_AWAKE_DATA"
+        ],
+        "description": "Required. The method used to calculate the resting heart rate."
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "calculationMethod"
+      ],
+      "description": "Optional. Metadata for the daily resting heart rate."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "date",
+     "beatsPerMinute"
+    ]
+   }
+  },
+  "food-measurement-unit": {
+   "field": "foodMeasurementUnit",
+   "schemaName": "FoodMeasurementUnit",
+   "apiVersion": "v4",
+   "description": "Represents a food measurement unit.",
+   "timeKind": "none",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "displayName": {
+      "type": "string",
+      "description": "Required. The display name of the food measurement unit (e.g., \"gram\", \"piece\")."
+     },
+     "pluralDisplayName": {
+      "type": "string",
+      "description": "Optional. The plural display name of the food measurement unit (e.g., \"grams\", \"pieces\")."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "displayName"
+    ]
+   }
+  },
+  "weight": {
+   "field": "weight",
+   "schemaName": "Weight",
+   "apiVersion": "v4",
+   "description": "Body weight measurement.",
+   "timeKind": "sample",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "notes": {
+      "type": "string",
+      "description": "Optional. Standard free-form notes captured at manual logging."
+     },
+     "weightGrams": {
+      "type": "number",
+      "description": "Required. Weight of a user in grams. Must be in the range `[0, 1000000]`."
+     },
+     "sampleTime": {
+      "type": "object",
+      "properties": {
+       "utcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time during the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "physicalTime": {
+        "type": "string",
+        "description": "Required. The time of the observation. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "utcOffset",
+       "physicalTime"
+      ],
+      "description": "Required. The time at which the weight was measured"
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "weightGrams",
+     "sampleTime"
+    ]
+   }
+  },
+  "basal-energy-burned": {
+   "field": "basalEnergyBurned",
+   "schemaName": "BasalEnergyBurned",
+   "apiVersion": "v4",
+   "description": "Number of calories burned due to basal metabolic rate (BMR) over a period of time.",
+   "timeKind": "interval",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "kcal": {
+      "type": "number",
+      "description": "Required. Number of calories burned due to basal metabolic rate in kilocalories over the observed interval."
+     },
+     "interval": {
+      "type": "object",
+      "properties": {
+       "endUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the end of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "endTime": {
+        "type": "string",
+        "description": "Required. Observed interval end time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       },
+       "startUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the start of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startTime": {
+        "type": "string",
+        "description": "Required. Observed interval start time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "endUtcOffset",
+       "endTime",
+       "startUtcOffset",
+       "startTime"
+      ],
+      "description": "Required. Observed interval."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "kcal",
+     "interval"
+    ]
+   }
+  },
+  "sedentary-period": {
+   "field": "sedentaryPeriod",
+   "schemaName": "SedentaryPeriod",
+   "apiVersion": "v4",
+   "description": "SedentaryPeriod SedentaryPeriod data represents the periods of time that the user was sedentary (i.e. not moving while wearing the device).",
+   "timeKind": "interval",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "interval": {
+      "type": "object",
+      "properties": {
+       "endUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the end of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "endTime": {
+        "type": "string",
+        "description": "Required. Observed interval end time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       },
+       "startUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the start of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startTime": {
+        "type": "string",
+        "description": "Required. Observed interval start time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "endUtcOffset",
+       "endTime",
+       "startUtcOffset",
+       "startTime"
+      ],
+      "description": "Required. Observed interval."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "interval"
+    ]
+   }
+  },
+  "oxygen-saturation": {
+   "field": "oxygenSaturation",
+   "schemaName": "OxygenSaturation",
+   "apiVersion": "v4",
+   "description": "Captures the user's instantaneous oxygen saturation percentage (SpO2).",
+   "timeKind": "sample",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "percentage": {
+      "type": "number",
+      "description": "Required. The oxygen saturation percentage. Must be in the range `[0, 100]`."
+     },
+     "sampleTime": {
+      "type": "object",
+      "properties": {
+       "utcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time during the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "physicalTime": {
+        "type": "string",
+        "description": "Required. The time of the observation. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "utcOffset",
+       "physicalTime"
+      ],
+      "description": "Required. The time at which oxygen saturation was measured."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "percentage",
+     "sampleTime"
+    ]
+   }
+  },
+  "activity-level": {
+   "field": "activityLevel",
+   "schemaName": "ActivityLevel",
+   "apiVersion": "v4",
+   "description": "Internal type to capture activity level during a certain time interval.",
+   "timeKind": "interval",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "activityLevelType": {
+      "type": "string",
+      "enum": [
+       "ACTIVITY_LEVEL_TYPE_UNSPECIFIED",
+       "SEDENTARY",
+       "LIGHTLY_ACTIVE",
+       "MODERATELY_ACTIVE",
+       "VERY_ACTIVE"
+      ],
+      "description": "Required. Activity level type in the given time interval."
+     },
+     "interval": {
+      "type": "object",
+      "properties": {
+       "endUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the end of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "endTime": {
+        "type": "string",
+        "description": "Required. Observed interval end time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       },
+       "startUtcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time at the start of the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "startTime": {
+        "type": "string",
+        "description": "Required. Observed interval start time. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "endUtcOffset",
+       "endTime",
+       "startUtcOffset",
+       "startTime"
+      ],
+      "description": "Required. Observed interval."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "activityLevelType",
+     "interval"
+    ]
+   }
+  },
+  "moods": {
+   "field": "moods",
+   "schemaName": "Moods",
+   "apiVersion": "v4",
+   "description": "Moods record.",
+   "timeKind": "sample",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "valences": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "enum": [
+        "VALENCE_UNSPECIFIED",
+        "UNPLEASANT",
+        "BASELINE",
+        "PLEASANT"
+       ]
+      },
+      "description": "Optional. The valences."
+     },
+     "sampleTime": {
+      "type": "object",
+      "properties": {
+       "utcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time during the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "physicalTime": {
+        "type": "string",
+        "description": "Required. The time of the observation. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "utcOffset",
+       "physicalTime"
+      ],
+      "description": "Required. The time at which moods were measured."
+     },
+     "moods": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "enum": [
+        "MOOD_UNSPECIFIED",
+        "AMAZED",
+        "AMUSED",
+        "ANGRY",
+        "ANNOYED",
+        "ANXIOUS",
+        "HAPPY",
+        "CONTENT",
+        "SAD",
+        "WORRIED",
+        "FRUSTRATED",
+        "EXCITED",
+        "CALM",
+        "STRESSED",
+        "ASHAMED",
+        "BRAVE",
+        "CONFIDENT",
+        "DISAPPOINTED",
+        "DISCOURAGED",
+        "DISGUSTED",
+        "DRAINED",
+        "EMBARRASSED",
+        "GRATEFUL",
+        "GUILTY",
+        "HOPEFUL",
+        "HOPELESS",
+        "INDIFFERENT",
+        "IRRITATED",
+        "JEALOUS",
+        "JOYFUL",
+        "LONELY",
+        "OVERWHELMED",
+        "PASSIONATE",
+        "PEACEFUL",
+        "PROUD",
+        "RELIEVED",
+        "SATISFIED",
+        "SCARED",
+        "SURPRISED",
+        "ENERGIZED",
+        "FATIGUED",
+        "VERY_CALM",
+        "VERY_STRESSED",
+        "NEUTRAL",
+        "AFRAID",
+        "HURTING",
+        "BORED",
+        "BITTER",
+        "ENVIOUS",
+        "CONFUSED",
+        "CURIOUS",
+        "AWESTRUCK",
+        "INSPIRED",
+        "LONGING",
+        "ACCOMPLISHED",
+        "LOVING",
+        "COMPASSIONATE",
+        "DEPRESSED",
+        "GOOD",
+        "LOW_ENERGY",
+        "OBSESSIVE_THOUGHTS",
+        "PANIC",
+        "PLAYFUL",
+        "PLEASED",
+        "SENSITIVE",
+        "SLEEPY",
+        "SWINGS",
+        "UNHAPPY",
+        "VERY_SELF_CRITICAL"
+       ]
+      },
+      "description": "Required. The moods logged."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "sampleTime",
+     "moods"
+    ]
+   }
+  },
+  "daily-vo2-max": {
+   "field": "dailyVo2Max",
+   "schemaName": "DailyVO2Max",
+   "apiVersion": "v4",
+   "description": "Contains a daily summary of the user's VO2 max (cardio fitness score), which is the maximum rate of oxygen the body can use during exercise.",
+   "timeKind": "date",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "vo2Max": {
+      "type": "number",
+      "description": "Required. Daily VO2 max value measured as in ml consumed oxygen / kg of body weight / min. Must be in the range `[0, 100]`."
+     },
+     "date": {
+      "type": "object",
+      "properties": {
+       "day": {
+        "type": "integer",
+        "description": "Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant."
+       },
+       "month": {
+        "type": "integer",
+        "description": "Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day."
+       },
+       "year": {
+        "type": "integer",
+        "description": "Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year."
+       }
+      },
+      "additionalProperties": false,
+      "description": "Required. The date for which the Daily VO2 max was measured."
+     },
+     "vo2MaxCovariance": {
+      "type": "number",
+      "description": "Optional. The covariance of the VO2 max value."
+     },
+     "cardioFitnessLevel": {
+      "type": "string",
+      "enum": [
+       "CARDIO_FITNESS_LEVEL_UNSPECIFIED",
+       "POOR",
+       "FAIR",
+       "AVERAGE",
+       "GOOD",
+       "VERY_GOOD",
+       "EXCELLENT"
+      ],
+      "description": "Optional. Represents the user's cardio fitness level based on their VO2 max."
+     },
+     "estimated": {
+      "type": "boolean",
+      "description": "Optional. An estimated field is added to indicate when the confidence has decreased sufficiently to consider the value an estimation."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "vo2Max",
+     "date"
+    ]
+   }
+  },
+  "daily-oxygen-saturation": {
+   "field": "dailyOxygenSaturation",
+   "schemaName": "DailyOxygenSaturation",
+   "apiVersion": "v4",
+   "description": "A daily oxygen saturation (SpO2) record. Represents the user's daily oxygen saturation summary, typically calculated during sleep.",
+   "timeKind": "date",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "date": {
+      "type": "object",
+      "properties": {
+       "day": {
+        "type": "integer",
+        "description": "Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant."
+       },
+       "month": {
+        "type": "integer",
+        "description": "Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day."
+       },
+       "year": {
+        "type": "integer",
+        "description": "Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year."
+       }
+      },
+      "additionalProperties": false,
+      "description": "Required. Date (in user's timezone) of the daily oxygen saturation record."
+     },
+     "averagePercentage": {
+      "type": "number",
+      "description": "Required. The average value of the oxygen saturation samples during the sleep. Must be in the range `[0, 100]`."
+     },
+     "upperBoundPercentage": {
+      "type": "number",
+      "description": "Required. The upper bound of the confidence interval of oxygen saturation samples during sleep. Must be in the range `[0, 100]`."
+     },
+     "lowerBoundPercentage": {
+      "type": "number",
+      "description": "Required. The lower bound of the confidence interval of oxygen saturation samples during sleep. Must be in the range `[0, 100]`."
+     },
+     "standardDeviationPercentage": {
+      "type": "number",
+      "description": "Optional. Standard deviation of the daily oxygen saturation averages from the past 7-30 days."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "date",
+     "averagePercentage",
+     "upperBoundPercentage",
+     "lowerBoundPercentage"
+    ]
+   }
+  },
+  "respiratory-rate-sleep-summary": {
+   "field": "respiratoryRateSleepSummary",
+   "schemaName": "RespiratoryRateSleepSummary",
+   "apiVersion": "v4",
+   "description": "Records respiratory rate details during sleep. Can have multiple per day if the user sleeps multiple times.",
+   "timeKind": "sample",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "fullSleepStats": {
+      "type": "object",
+      "properties": {
+       "standardDeviation": {
+        "type": "number",
+        "description": "Optional. Standard deviation of the respiratory rate during sleep."
+       },
+       "breathsPerMinute": {
+        "type": "number",
+        "description": "Required. Average breaths per minute."
+       },
+       "signalToNoise": {
+        "type": "number",
+        "description": "Optional. How trustworthy the data is for the computation."
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "breathsPerMinute"
+      ],
+      "description": "Required. Full respiratory rate statistics."
+     },
+     "sampleTime": {
+      "type": "object",
+      "properties": {
+       "utcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time during the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "physicalTime": {
+        "type": "string",
+        "description": "Required. The time of the observation. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "utcOffset",
+       "physicalTime"
+      ],
+      "description": "Required. The time at which respiratory rate was measured."
+     },
+     "remSleepStats": {
+      "type": "object",
+      "properties": {
+       "standardDeviation": {
+        "type": "number",
+        "description": "Optional. Standard deviation of the respiratory rate during sleep."
+       },
+       "breathsPerMinute": {
+        "type": "number",
+        "description": "Required. Average breaths per minute."
+       },
+       "signalToNoise": {
+        "type": "number",
+        "description": "Optional. How trustworthy the data is for the computation."
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "breathsPerMinute"
+      ],
+      "description": "Optional. Respiratory rate statistics for REM sleep."
+     },
+     "deepSleepStats": {
+      "type": "object",
+      "properties": {
+       "standardDeviation": {
+        "type": "number",
+        "description": "Optional. Standard deviation of the respiratory rate during sleep."
+       },
+       "breathsPerMinute": {
+        "type": "number",
+        "description": "Required. Average breaths per minute."
+       },
+       "signalToNoise": {
+        "type": "number",
+        "description": "Optional. How trustworthy the data is for the computation."
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "breathsPerMinute"
+      ],
+      "description": "Optional. Respiratory rate statistics for deep sleep."
+     },
+     "lightSleepStats": {
+      "type": "object",
+      "properties": {
+       "standardDeviation": {
+        "type": "number",
+        "description": "Optional. Standard deviation of the respiratory rate during sleep."
+       },
+       "breathsPerMinute": {
+        "type": "number",
+        "description": "Required. Average breaths per minute."
+       },
+       "signalToNoise": {
+        "type": "number",
+        "description": "Optional. How trustworthy the data is for the computation."
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "breathsPerMinute"
+      ],
+      "description": "Optional. Respiratory rate statistics for light sleep."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "fullSleepStats",
+     "sampleTime"
+    ]
+   }
+  },
+  "skin-temperature": {
+   "field": "skinTemperature",
+   "schemaName": "SkinTemperature",
+   "apiVersion": "v4beta",
+   "description": "Skin temperature measurement.",
+   "timeKind": "sample",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "sampleTime": {
+      "type": "object",
+      "properties": {
+       "utcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time during the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "physicalTime": {
+        "type": "string",
+        "description": "Required. The time of the observation. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "utcOffset",
+       "physicalTime"
+      ],
+      "description": "Required. The time at which skin temperature was measured."
+     },
+     "metadata": {
+      "type": "object",
+      "properties": {
+       "measurementState": {
+        "type": "string",
+        "enum": [
+         "MEASUREMENT_STATE_UNSPECIFIED",
+         "MEASUREMENT_STATE_OTHER",
+         "MEASUREMENT_STATE_AT_REST",
+         "MEASUREMENT_STATE_SLEEP"
+        ],
+        "description": "Optional. The motion state of the skin temperature measurement."
+       },
+       "measurementLocation": {
+        "type": "string",
+        "enum": [
+         "MEASUREMENT_LOCATION_UNSPECIFIED",
+         "OTHER",
+         "FINGER",
+         "TOE",
+         "WRIST"
+        ],
+        "description": "Optional. The location of the skin temperature measurement."
+       }
+      },
+      "additionalProperties": false,
+      "description": "Optional. Metadata for the skin temperature measurement."
+     },
+     "baselineTemperatureCelsius": {
+      "type": "number",
+      "description": "Required. The baseline skin temperature in Celsius. Must be in the range `[0, 100]`."
+     },
+     "temperatureCelsius": {
+      "type": "number",
+      "description": "Required. The skin temperature in Celsius. Must be in the range `[0, 100]`."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "sampleTime",
+     "baselineTemperatureCelsius",
+     "temperatureCelsius"
+    ]
+   }
+  },
+  "skin-temperature-sensors": {
+   "field": "skinTemperatureSensors",
+   "schemaName": "SkinTemperatureSensors",
+   "apiVersion": "v4beta",
+   "description": "Skin temperature sensor data containing multi-sensor readings.",
+   "timeKind": "sample",
+   "writeSchema": {
+    "type": "object",
+    "properties": {
+     "sampleTime": {
+      "type": "object",
+      "properties": {
+       "utcOffset": {
+        "type": "string",
+        "description": "Required. The offset of the user's local time during the observation relative to the Coordinated Universal Time (UTC). Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+       },
+       "physicalTime": {
+        "type": "string",
+        "description": "Required. The time of the observation. RFC 3339 timestamp, e.g. 2026-10-09T08:30:00Z"
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "utcOffset",
+       "physicalTime"
+      ],
+      "description": "Required. The observation sample time."
+     },
+     "sensorData": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "metadata": {
+         "type": "object",
+         "properties": {
+          "sensorType": {
+           "type": "string",
+           "enum": [
+            "SENSOR_TYPE_UNSPECIFIED",
+            "SKIN_TEMPERATURE_SENSOR",
+            "INTERNAL_DEVICE_TEMPERATURE_SENSOR"
+           ],
+           "description": "Optional. The type of the sensor."
+          },
+          "measurementState": {
+           "type": "string",
+           "enum": [
+            "MEASUREMENT_STATE_UNSPECIFIED",
+            "OTHER",
+            "AT_REST",
+            "SLEEP"
+           ],
+           "description": "Optional. The motion state of the sensor measurement."
+          },
+          "measurementLocation": {
+           "type": "string",
+           "enum": [
+            "MEASUREMENT_LOCATION_UNSPECIFIED",
+            "OTHER",
+            "FINGER",
+            "TOE",
+            "WRIST"
+           ],
+           "description": "Optional. The location of the sensor measurement."
+          }
+         },
+         "additionalProperties": false,
+         "description": "Optional. Metadata for the sensor reading."
+        },
+        "temperatureCelsius": {
+         "type": "number",
+         "description": "Required. The temperature reading in Celsius."
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "temperatureCelsius"
+       ]
+      },
+      "description": "Required. Repeated sensor data readings for this sample."
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "sampleTime",
+     "sensorData"
+    ]
+   }
+  }
+ },
+ "accountSchemas": {
+  "profile": {
+   "type": "object",
+   "properties": {
+    "name": {
+     "type": "string",
+     "description": "Identifier. The resource name of this Profile resource. Format: `users/{user}/profile` Example: `users/1234567890/profile` or `users/me/profile` The {user} ID is a system-generated Google Health API user ID, a string of 1-63 characters consisting of lowercase and uppercase letters, numbers, and hyp…"
+    },
+    "userConfiguredWalkingStrideLengthMm": {
+     "type": "integer",
+     "description": "Optional. The user's user configured walking stride length, in millimeters. The user must consent to the following access scope to access this field: - `https://www.googleapis.com/auth/googlehealth.activity_and_fitness.readonly`"
+    },
+    "userConfiguredRunningStrideLengthMm": {
+     "type": "integer",
+     "description": "Optional. The user's user configured running stride length, in millimeters. The user must consent to the following access scope to access this field: - `https://www.googleapis.com/auth/googlehealth.activity_and_fitness.readonly`"
+    },
+    "age": {
+     "type": "integer",
+     "description": "Optional. The age in years based on the user's birth date. Updates to this field are currently not supported."
+    }
+   },
+   "additionalProperties": false
+  },
+  "settings": {
+   "type": "object",
+   "properties": {
+    "weightUnit": {
+     "type": "string",
+     "enum": [
+      "WEIGHT_UNIT_UNSPECIFIED",
+      "WEIGHT_UNIT_POUNDS",
+      "WEIGHT_UNIT_STONE",
+      "WEIGHT_UNIT_KILOGRAMS"
+     ],
+     "description": "Optional. The measurement unit defined in the user's account settings."
+    },
+    "glucoseUnit": {
+     "type": "string",
+     "enum": [
+      "GLUCOSE_UNIT_UNSPECIFIED",
+      "GLUCOSE_UNIT_MG_DL",
+      "GLUCOSE_UNIT_MMOL_L"
+     ],
+     "description": "Optional. The measurement unit defined in the user's account settings."
+    },
+    "swimUnit": {
+     "type": "string",
+     "enum": [
+      "SWIM_UNIT_UNSPECIFIED",
+      "SWIM_UNIT_METERS",
+      "SWIM_UNIT_YARDS"
+     ],
+     "description": "Optional. The measurement unit defined in the user's account settings."
+    },
+    "distanceUnit": {
+     "type": "string",
+     "enum": [
+      "DISTANCE_UNIT_UNSPECIFIED",
+      "DISTANCE_UNIT_MILES",
+      "DISTANCE_UNIT_KILOMETERS"
+     ],
+     "description": "Optional. The measurement unit defined in the user's account settings."
+    },
+    "strideLengthWalkingType": {
+     "type": "string",
+     "enum": [
+      "STRIDE_LENGTH_TYPE_UNSPECIFIED",
+      "STRIDE_LENGTH_TYPE_DEFAULT",
+      "STRIDE_LENGTH_TYPE_MANUAL",
+      "STRIDE_LENGTH_TYPE_AUTO"
+     ],
+     "description": "Optional. The stride length type defined in the user's account settings for walking. Updates to this field are currently not supported."
+    },
+    "autoStrideEnabled": {
+     "type": "boolean",
+     "description": "Optional. True if the user's stride length is determined automatically. Updates to this field are currently not supported."
+    },
+    "strideLengthRunningType": {
+     "type": "string",
+     "enum": [
+      "STRIDE_LENGTH_TYPE_UNSPECIFIED",
+      "STRIDE_LENGTH_TYPE_DEFAULT",
+      "STRIDE_LENGTH_TYPE_MANUAL",
+      "STRIDE_LENGTH_TYPE_AUTO"
+     ],
+     "description": "Optional. The stride length type defined in the user's account settings for running. Updates to this field are currently not supported."
+    },
+    "timeZone": {
+     "type": "string",
+     "description": "Optional. The timezone defined in the user's account settings. This follows the IANA [Time Zone Database](https://www.iana.org/time-zones). Updates to this field are currently not supported."
+    },
+    "languageLocale": {
+     "type": "string",
+     "description": "Optional. The locale defined in the user's account settings. Updates to this field are currently not supported."
+    },
+    "heightUnit": {
+     "type": "string",
+     "enum": [
+      "HEIGHT_UNIT_UNSPECIFIED",
+      "HEIGHT_UNIT_INCHES",
+      "HEIGHT_UNIT_CENTIMETERS"
+     ],
+     "description": "Optional. The measurement unit defined in the user's account settings."
+    },
+    "temperatureUnit": {
+     "type": "string",
+     "enum": [
+      "TEMPERATURE_UNIT_UNSPECIFIED",
+      "TEMPERATURE_UNIT_CELSIUS",
+      "TEMPERATURE_UNIT_FAHRENHEIT"
+     ],
+     "description": "Optional. The measurement unit defined in the user's account settings."
+    },
+    "name": {
+     "type": "string",
+     "description": "Identifier. The resource name of this Settings resource. Format: `users/{user}/settings` Example: `users/1234567890/settings` or `users/me/settings` The {user} ID is a system-generated Google Health API user ID, a string of 1-63 characters consisting of lowercase and uppercase letters, numbers, and…"
+    },
+    "utcOffset": {
+     "type": "string",
+     "description": "Optional. The user's timezone offset relative to UTC. Updates to this field are currently not supported. Duration in seconds with an 's' suffix, e.g. '7200s' or '-18000s'"
+    },
+    "waterUnit": {
+     "type": "string",
+     "enum": [
+      "WATER_UNIT_UNSPECIFIED",
+      "WATER_UNIT_ML",
+      "WATER_UNIT_FL_OZ",
+      "WATER_UNIT_CUP"
+     ],
+     "description": "Optional. The measurement unit defined in the user's account settings."
+    }
+   },
+   "additionalProperties": false
+  }
+ }
+}
