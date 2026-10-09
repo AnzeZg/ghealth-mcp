@@ -1,0 +1,25 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+      - name: Worker bundle builds
+        run: npx wrangler deploy --dry-run --outdir /tmp/worker
+      - name: Generated schemas are up to date
+        # Google evolves the API; a diff here means `npm run generate` should be re-run and committed.
+        continue-on-error: true
+        run: npm run generate && git diff --exit-code src/core/generated
