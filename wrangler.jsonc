@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ghealth-mcp",
+  "main": "src/remote/index.ts",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "kv_namespaces": [
+    // Stores OAuth clients, grants and (encrypted) tokens. `wrangler deploy` provisions it automatically.
+    { "binding": "OAUTH_KV" },
+  ],
+  "vars": {
+    // Which data categories to expose, e.g. "nutrition:rw,activity:rw,sleep:r". Empty = everything.
+    "ENABLED_CATEGORIES": "",
+    // Fallback IANA time zone when your Google Health settings have none.
+    "DEFAULT_TIMEZONE": "UTC",
+  },
+  // Secrets (set with `npx wrangler secret put NAME`): GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, ALLOWED_EMAILS
+  "observability": { "enabled": true },
+  "dev": { "port": 8788 },
+}
