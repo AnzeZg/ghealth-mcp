@@ -4,3 +4,7 @@ dist/
 .dev.vars
 .env
 *.log
+
+# Google OAuth client credentials (never commit)
+client_secrets/
+*client_secret*.json
